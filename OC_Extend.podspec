@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OC_Extend'
-  s.version          = '0.0.9'
+  s.version          = '0.0.1'
   s.summary          = '在这里你将看到 iOS Objective-C 的组件扩展'
 
 # This description is used to generate tags and improve search results.
