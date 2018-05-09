@@ -1,21 +1,9 @@
-#
-# Be sure to run `pod lib lint Extend.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
+
 
 Pod::Spec.new do |s|
   s.name             = 'OC_Extend'
   s.version          = '0.0.1'
   s.summary          = '在这里你将看到 iOS Objective-C 的组件扩展'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
             不积跬步无以至千里；每天增加一个组建的扩展功能，督促自己每天都要进步。
@@ -30,8 +18,6 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "8.0"
   s.ios.deployment_target = '8.0'
-
-  s.source_files = 'PublicClass/**/*.{h,m}'
   
   s.framework  = "UIkit"
   s.frameworks = "Security", "CFNetwork"
@@ -42,4 +28,44 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.dependency "AFNetworking", "~> 3.2"
+
+  # 导入文件夹
+  s.source_files = 'PublicClass/Tool.{h,m}'
+
+  s.subspec 'APPLocation' do |ss|
+    ss.source_files = 'AFNetworking/APPLocation/*.{h,m}'
+    # ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
+    # ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
+    # ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
+    # ss.osx.frameworks = 'CoreServices'
+  end
+
+  s.subspec 'CheckText' do |ss|
+    ss.source_files = 'AFNetworking/CheckText/*.{h,m}'
+  end
+
+  s.subspec 'CommonSecretData' do |ss|
+    ss.source_files = 'AFNetworking/CommonSecretData/**/*.{h,m}'
+  end
+
+  s.subspec 'NSExtension' do |ss|
+    ss.source_files = 'AFNetworking/NSExtension/**/*.{h,m}'
+  end
+
+  s.subspec 'UIExtension' do |ss|
+    ss.source_files = 'AFNetworking/UIExtension/**/*.{h,m}'
+  end
+
+  s.subspec 'MBProgressHUD' do |ss|
+    ss.source_files = 'AFNetworking/MBProgressHUD/*.{h,m}'
+  end
+
+  s.subspec 'SAMKeychain' do |ss|
+    ss.source_files = 'AFNetworking/SAMKeychain/*.{h,m}'
+  end
+
+  s.subspec 'AppEnum' do |ss|
+    ss.source_files = 'AFNetworking/AppEnum/*.{h,m}'
+  end
+  s.source_files = 'PublicClass/**/*.{h,m}'
 end
