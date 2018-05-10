@@ -14,35 +14,35 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - OC_Extend (0.0.2):
+  - OC_Extend (0.0.3):
     - AFNetworking (~> 3.2)
-    - OC_Extend/APPLocation (= 0.0.2)
-    - OC_Extend/APPSeting (= 0.0.2)
-    - OC_Extend/CheckText (= 0.0.2)
-    - OC_Extend/CommonSecretData (= 0.0.2)
-    - OC_Extend/MBProgressHUD (= 0.0.2)
-    - OC_Extend/NSExtension (= 0.0.2)
-    - OC_Extend/UIExtension (= 0.0.2)
+    - OC_Extend/APPLocation (= 0.0.3)
+    - OC_Extend/APPSeting (= 0.0.3)
+    - OC_Extend/CheckText (= 0.0.3)
+    - OC_Extend/CommonSecretData (= 0.0.3)
+    - OC_Extend/MBProgressHUD (= 0.0.3)
+    - OC_Extend/NSExtension (= 0.0.3)
+    - OC_Extend/UIExtension (= 0.0.3)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/APPLocation (0.0.2):
-    - AFNetworking (~> 3.2)
-    - SAMKeychain (~> 1.5.3)
-  - OC_Extend/APPSeting (0.0.2):
+  - OC_Extend/APPLocation (0.0.3):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/CheckText (0.0.2):
+  - OC_Extend/APPSeting (0.0.3):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/CommonSecretData (0.0.2):
+  - OC_Extend/CheckText (0.0.3):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/MBProgressHUD (0.0.2):
+  - OC_Extend/CommonSecretData (0.0.3):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/NSExtension (0.0.2):
+  - OC_Extend/MBProgressHUD (0.0.3):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/UIExtension (0.0.2):
+  - OC_Extend/NSExtension (0.0.3):
+    - AFNetworking (~> 3.2)
+    - SAMKeychain (~> 1.5.3)
+  - OC_Extend/UIExtension (0.0.3):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
   - SAMKeychain (1.5.3)
@@ -56,9 +56,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  OC_Extend: 8fec94b9eeaeeb658b3347fb004ee957b47e2145
+  OC_Extend: 6c907dc550f4a3fe052a0a0df15e3539b399ec49
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
 
-PODFILE CHECKSUM: 5b31485f188577ef8aa6d2106de8a58c524781cb
+PODFILE CHECKSUM: 0b23412d744b010634b8f8040f87e6f01becec6c
 
 COCOAPODS: 1.4.0.beta.2

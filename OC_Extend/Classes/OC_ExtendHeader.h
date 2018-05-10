@@ -6,8 +6,7 @@
 //  Copyright © 2018年 SLAuthentication. All rights reserved.
 //
 
-#ifndef OC_ExtendHeader_h
-#define OC_ExtendHeader_h
+#ifdef __OBJC__
 
 /**
  字符串是否为空
@@ -132,7 +131,7 @@
 [View.layer setBorderColor:[Color CGColor]]
 
 #pragma mark -添加的头文件信息
-#import "AppEnum.h"
+//#import "AppEnum.h"
 #import "Tool.h"
 
 #endif /* OC_ExtendHeader_h */
