@@ -7,7 +7,7 @@
 //
 
 #import "OCViewController.h"
-//#import "oc"
+//#import "ZJMethodHeader.h"
 
 @interface OCViewController ()
 
@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
     
-//    [tool]
+//    KScreenWidth;
 }
 
 - (void)didReceiveMemoryWarning

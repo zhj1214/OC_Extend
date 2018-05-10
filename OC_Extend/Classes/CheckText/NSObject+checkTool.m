@@ -10,8 +10,6 @@
 
 @implementation NSObject (checkTool)
 
-
-
 #pragma mark - 邮箱校验
 +(BOOL)checkForEmail:(NSString *)email{
     NSString *regEx = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";

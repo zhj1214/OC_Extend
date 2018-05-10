@@ -1,6 +1,6 @@
 {
   "name": "OC_Extend",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "在这里你将看到 iOS Objective-C 的组件扩展",
   "description": "不积跬步无以至千里；每天增加一个组建的扩展功能，督促自己每天都要进步。",
   "homepage": "https://github.com/zhj1214/OC_Extend",
@@ -13,23 +13,35 @@
   },
   "source": {
     "git": "https://github.com/zhj1214/OC_Extend.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "frameworks": [
+    "UIkit",
     "Security",
-    "CFNetwork"
+    "CFNetwork",
+    "Foundation",
+    "QuartzCore"
   ],
   "dependencies": {
     "AFNetworking": [
       "~> 3.2"
+    ],
+    "SAMKeychain": [
+      "~> 1.5.3"
     ]
   },
+  "requires_arc": true,
+  "source_files": "OC_Extend/Classes/OC_ExtendHeader.h",
   "public_header_files": "OC_Extend/Classes/OC_ExtendHeader.h",
-  "source_files": "OC_Extend/Classes/*.{h,m}",
   "subspecs": [
+    {
+      "name": "APPSeting",
+      "source_files": "OC_Extend/Classes/Tool.{h,m}",
+      "public_header_files": "OC_Extend/Classes/Tool.h"
+    },
     {
       "name": "APPLocation",
       "source_files": "OC_Extend/Classes/APPLocation/*.{h,m}",
@@ -59,11 +71,6 @@
       "name": "MBProgressHUD",
       "source_files": "OC_Extend/Classes/MBProgressHUD/*.{h,m}",
       "public_header_files": "OC_Extend/Classes/MBProgressHUD/*.h"
-    },
-    {
-      "name": "SAMKeychain",
-      "source_files": "OC_Extend/Classes/SAMKeychain/*.{h,m}",
-      "public_header_files": "OC_Extend/Classes/SAMKeychain/*.h"
     }
   ]
 }

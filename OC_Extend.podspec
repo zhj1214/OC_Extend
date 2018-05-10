@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OC_Extend'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = '在这里你将看到 iOS Objective-C 的组件扩展'
 
   s.description      = <<-DESC
@@ -16,21 +16,29 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/zhj1214/OC_Extend.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.platform     = :ios, "8.0"
-  s.ios.deployment_target = '8.0'
+  s.platform     = :ios, "9.0"
+  s.ios.deployment_target = '9.0'
   
-  s.framework  = "UIkit"
-  s.frameworks = "Security", "CFNetwork"
+  # s.framework  = "UIkit"
+  s.frameworks = "UIkit","Security", "CFNetwork",'Foundation','QuartzCore'
 
+  s.dependency "AFNetworking", "~> 3.2"
+  s.dependency "SAMKeychain", "~> 1.5.3"
+  # s.dependency "MyOftenUseTool"
+
+  s.requires_arc = true
   # s.resource_bundles = {
   #   'Extend' => ['Extend/Assets/*.png']
   # }
 
-  # 导入文件夹
-  # 'PublicClass/AppEnum.h'
+  # => 创建个人目录  
+  s.source_files = 'OC_Extend/Classes/OC_ExtendHeader.h'
   s.public_header_files = 'OC_Extend/Classes/OC_ExtendHeader.h'
-  s.source_files = 'OC_Extend/Classes/*.{h,m}'
-  
+
+  s.subspec 'APPSeting' do |ss|
+    ss.source_files = 'OC_Extend/Classes/Tool.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/Tool.h'
+  end
 
   s.subspec 'APPLocation' do |ss|
     ss.source_files = 'OC_Extend/Classes/APPLocation/*.{h,m}'
@@ -65,10 +73,10 @@ Pod::Spec.new do |s|
     ss.public_header_files = 'OC_Extend/Classes/MBProgressHUD/*.h'
   end
 
-  s.subspec 'SAMKeychain' do |ss|
-    ss.source_files = 'OC_Extend/Classes/SAMKeychain/*.{h,m}'
-    ss.public_header_files = 'OC_Extend/Classes/SAMKeychain/*.h'
-  end
+  # s.subspec 'SAMKeychain' do |ss|
+  #   ss.source_files = 'OC_Extend/Classes/SAMKeychain/*.{h,m}'
+  #   ss.public_header_files = 'OC_Extend/Classes/SAMKeychain/*.h'
+  # end
 
-  s.dependency "AFNetworking", "~> 3.2"
+  
 end
