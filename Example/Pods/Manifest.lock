@@ -1,0 +1,54 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - OC_Extend (0.0.1):
+    - AFNetworking (~> 3.2)
+    - OC_Extend/APPLocation (= 0.0.1)
+    - OC_Extend/CheckText (= 0.0.1)
+    - OC_Extend/CommonSecretData (= 0.0.1)
+    - OC_Extend/MBProgressHUD (= 0.0.1)
+    - OC_Extend/NSExtension (= 0.0.1)
+    - OC_Extend/SAMKeychain (= 0.0.1)
+    - OC_Extend/UIExtension (= 0.0.1)
+  - OC_Extend/APPLocation (0.0.1):
+    - AFNetworking (~> 3.2)
+  - OC_Extend/CheckText (0.0.1):
+    - AFNetworking (~> 3.2)
+  - OC_Extend/CommonSecretData (0.0.1):
+    - AFNetworking (~> 3.2)
+  - OC_Extend/MBProgressHUD (0.0.1):
+    - AFNetworking (~> 3.2)
+  - OC_Extend/NSExtension (0.0.1):
+    - AFNetworking (~> 3.2)
+  - OC_Extend/SAMKeychain (0.0.1):
+    - AFNetworking (~> 3.2)
+  - OC_Extend/UIExtension (0.0.1):
+    - AFNetworking (~> 3.2)
+
+DEPENDENCIES:
+  - OC_Extend (from `../`)
+
+EXTERNAL SOURCES:
+  OC_Extend:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  OC_Extend: 66e464771820a5450836f8b133566aeb4dcae2b4
+
+PODFILE CHECKSUM: 5b31485f188577ef8aa6d2106de8a58c524781cb
+
+COCOAPODS: 1.4.0.beta.2

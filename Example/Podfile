@@ -1,0 +1,12 @@
+platform :ios,'9.0'
+use_frameworks!
+
+target 'OC_Extend_Example' do
+  pod 'OC_Extend', :path => '../'
+
+  target 'OC_Extend_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

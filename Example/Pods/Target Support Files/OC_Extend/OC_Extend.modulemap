@@ -1,0 +1,6 @@
+framework module OC_Extend {
+  umbrella header "OC_Extend-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -26,46 +26,49 @@ Pod::Spec.new do |s|
   #   'Extend' => ['Extend/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.dependency "AFNetworking", "~> 3.2"
-
   # 导入文件夹
-  s.source_files = 'PublicClass/Tool.{h,m}'
+  # 'PublicClass/AppEnum.h'
+  s.public_header_files = 'OC_Extend/Classes/OC_ExtendHeader.h'
+  s.source_files = 'OC_Extend/Classes/*.{h,m}'
+  
 
   s.subspec 'APPLocation' do |ss|
-    ss.source_files = 'AFNetworking/APPLocation/*.{h,m}'
-    # ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
+    ss.source_files = 'OC_Extend/Classes/APPLocation/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/APPLocation/*.h'
     # ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
     # ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
     # ss.osx.frameworks = 'CoreServices'
   end
 
   s.subspec 'CheckText' do |ss|
-    ss.source_files = 'AFNetworking/CheckText/*.{h,m}'
+    ss.source_files = 'OC_Extend/Classes/CheckText/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/CheckText/*.h'
   end
 
   s.subspec 'CommonSecretData' do |ss|
-    ss.source_files = 'AFNetworking/CommonSecretData/**/*.{h,m}'
+    ss.source_files = 'OC_Extend/Classes/CommonSecretData/**/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/CommonSecretData/**/*.h'
   end
 
   s.subspec 'NSExtension' do |ss|
-    ss.source_files = 'AFNetworking/NSExtension/**/*.{h,m}'
+    ss.source_files = 'OC_Extend/Classes/NSExtension/**/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/NSExtension/**/*.h'
   end
 
   s.subspec 'UIExtension' do |ss|
-    ss.source_files = 'AFNetworking/UIExtension/**/*.{h,m}'
+    ss.source_files = 'OC_Extend/Classes/UIExtension/**/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/UIExtension/**/*.h'
   end
 
   s.subspec 'MBProgressHUD' do |ss|
-    ss.source_files = 'AFNetworking/MBProgressHUD/*.{h,m}'
+    ss.source_files = 'OC_Extend/Classes/MBProgressHUD/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/MBProgressHUD/*.h'
   end
 
   s.subspec 'SAMKeychain' do |ss|
-    ss.source_files = 'AFNetworking/SAMKeychain/*.{h,m}'
+    ss.source_files = 'OC_Extend/Classes/SAMKeychain/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/SAMKeychain/*.h'
   end
 
-  s.subspec 'AppEnum' do |ss|
-    ss.source_files = 'AFNetworking/AppEnum/*.{h,m}'
-  end
-  s.source_files = 'PublicClass/**/*.{h,m}'
+  s.dependency "AFNetworking", "~> 3.2"
 end
