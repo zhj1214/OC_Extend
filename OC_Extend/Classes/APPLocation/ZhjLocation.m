@@ -7,6 +7,7 @@
 //
 
 #import "ZhjLocation.h"
+#import "UIViewController+Utils.h"
 
 @interface ZhjLocation () <CLLocationManagerDelegate,UIAlertViewDelegate>
 

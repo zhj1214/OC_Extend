@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OC_Extend'
-  s.version          = '0.0.5'
+  s.version          = '0.0.6'
   s.summary          = '在这里你将看到 iOS Objective-C 的组件扩展'
 
   s.description      = <<-DESC
