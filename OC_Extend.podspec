@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OC_Extend'
-  s.version          = '0.0.6'
+  s.version          = '0.0.7'
   s.summary          = '在这里你将看到 iOS Objective-C 的组件扩展'
 
   s.description      = <<-DESC
@@ -40,9 +40,9 @@ Pod::Spec.new do |s|
     ss.public_header_files = 'OC_Extend/Classes/Tool.h'
   end
 
-  s.subspec 'UIExtension' do |sss|
-    sss.source_files = 'OC_Extend/Classes/UIExtension/**/*.{h,m}'
-    sss.public_header_files = 'OC_Extend/Classes/UIExtension/**/*.h'
+  s.subspec 'UIExtension' do |ss|
+    ss.source_files = 'OC_Extend/Classes/UIExtension/**/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/UIExtension/**/*.h'
   end
 
   s.subspec 'APPLocation' do |ss|
@@ -58,14 +58,14 @@ Pod::Spec.new do |s|
     ss.public_header_files = 'OC_Extend/Classes/CheckText/*.h'
   end
 
-  s.subspec 'CommonSecretData' do |sss|
-    sss.source_files = 'OC_Extend/Classes/CommonSecretData/**/*.{h,m}'
-    sss.public_header_files = 'OC_Extend/Classes/CommonSecretData/**/*.h'
+  s.subspec 'CommonSecretData' do |ss|
+    ss.source_files = 'OC_Extend/Classes/CommonSecretData/**/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/CommonSecretData/**/*.h'
   end
 
-  s.subspec 'NSExtension' do |sss|
-    sss.source_files = 'OC_Extend/Classes/NSExtension/**/*.{h,m}'
-    sss.public_header_files = 'OC_Extend/Classes/NSExtension/**/*.h'
+  s.subspec 'NSExtension' do |ss|
+    ss.source_files = 'OC_Extend/Classes/NSExtension/**/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/NSExtension/**/*.h'
   end
 
   s.subspec 'MBProgressHUD' do |ss|
