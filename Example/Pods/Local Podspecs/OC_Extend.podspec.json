@@ -40,8 +40,14 @@
   "subspecs": [
     {
       "name": "APPSeting",
-      "source_files": "OC_Extend/Classes/APPSeting/*{h,m}",
-      "public_header_files": "OC_Extend/Classes/APPSeting/*.h"
+      "source_files": [
+        "OC_Extend/Classes/Tool.{h,m}",
+        "OC_Extend/Classes/APPSeting/*{h,m}"
+      ],
+      "public_header_files": [
+        "OC_Extend/Classes/Tool.h",
+        "OC_Extend/Classes/APPSeting/*.h"
+      ]
     },
     {
       "name": "UIExtension",

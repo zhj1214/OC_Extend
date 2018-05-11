@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OC_Extend'
-  s.version          = '0.0.7'
+  s.version          = '0.0.9'
   s.summary          = '在这里你将看到 iOS Objective-C 的组件扩展'
 
   s.description      = <<-DESC
@@ -45,9 +45,14 @@ Pod::Spec.new do |s|
     ss.public_header_files = 'OC_Extend/Classes/UIExtension/**/*.h'
   end
 
+  s.subspec 'CommonSecretData' do |ss|
+    ss.source_files = 'OC_Extend/Classes/CommonSecretData/**/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/CommonSecretData/**/*.h'
+  end
+
   s.subspec 'APPLocation' do |ss|
-    ss.source_files = 'OC_Extend/Classes/APPLocation/*.{h,m}','OC_Extend/Classes/UIExtension/UIViewController+Utils.{h,m}'
-    ss.public_header_files = 'OC_Extend/Classes/APPLocation/*.h','OC_Extend/Classes/UIExtension/UIViewController+Utils.h'
+    ss.source_files = 'OC_Extend/Classes/APPLocation/*.{h,m}','OC_Extend/Classes/UIExtension/UIViewController/UIViewController+Utils.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/APPLocation/*.h','OC_Extend/Classes/UIExtension/UIViewController/UIViewController+Utils.h'
     # ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
     # ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
     # ss.osx.frameworks = 'CoreServices'
@@ -56,11 +61,6 @@ Pod::Spec.new do |s|
   s.subspec 'CheckText' do |ss|
     ss.source_files = 'OC_Extend/Classes/CheckText/*.{h,m}','OC_Extend/Classes/APPSeting/AppEnum.h'
     ss.public_header_files = 'OC_Extend/Classes/CheckText/*.h','OC_Extend/Classes/APPSeting/AppEnum.h'
-  end
-
-  s.subspec 'CommonSecretData' do |ss|
-    ss.source_files = 'OC_Extend/Classes/CommonSecretData/**/*.{h,m}'
-    ss.public_header_files = 'OC_Extend/Classes/CommonSecretData/**/*.h'
   end
 
   s.subspec 'NSExtension' do |ss|

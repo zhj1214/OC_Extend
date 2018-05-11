@@ -3,7 +3,7 @@ use_frameworks!
 
 target 'OC_Extend_Example' do
   pod 'OC_Extend', :path => '../'
-
+#pod 'OC_Extend'
   target 'OC_Extend_Tests' do
     inherit! :search_paths
 

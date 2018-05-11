@@ -7,7 +7,7 @@
 //
 
 #import "OCAppDelegate.h"
-#import "OC_ExtendHeader.h"
+
 
 @implementation OCAppDelegate
 
@@ -45,4 +45,18 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark: -- 获取用户 地里位置
+-(void)locationDidEndUpdatingLocation:(Location *)location {
+    //    NSLog(@"地理位置： %f,,,%f,,,%@,,,%@,,,%@,,,%@,,,%@,,,%@",location.latitude,location.longitude,location.country,location.administrativeArea,location.locality,location.subLocality,location.thoroughfare,location.subThoroughfare);
+    // 获取经纬度
+    NSString *Longitude  = [NSString stringWithFormat:@"%f",location.longitude];
+    NSString *latitude = [NSString stringWithFormat:@"%f",location.latitude];
+    
+    if (location.latitude && location.longitude) {
+        if (location.country.length>0 && location.administrativeArea.length>0) {
+            NSLog(@"经度：%@  纬度： %@",Longitude,latitude);
+            [[ZhjLocation shareZHJLocation] stopLocation];
+        }
+    }
+}
 @end

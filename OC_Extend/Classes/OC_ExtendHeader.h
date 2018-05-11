@@ -9,6 +9,7 @@
 #ifndef OC_ExtendHeader_h
 #define OC_ExtendHeader_h
 
+#import "UIViewController+Utils.h"
 #import "OC_Extend-umbrella.h"
 
 #endif /* OC_ExtendHeader_h */
