@@ -7,10 +7,9 @@
 //
 
 #import "NSObject+checkTool.h"
+#import "AppEnum.h"
 
 @implementation NSObject (checkTool)
-
-
 
 #pragma mark - 邮箱校验
 +(BOOL)checkForEmail:(NSString *)email{

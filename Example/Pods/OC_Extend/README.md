@@ -17,12 +17,12 @@ Extend is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Extend'
+pod 'OC_Extend'
 ```
 
 ## Author
 
-zhj1214, hongjun.zhang@travelzen.com
+zhj1214,zhj1214@hotmail.com
 
 ## License
 

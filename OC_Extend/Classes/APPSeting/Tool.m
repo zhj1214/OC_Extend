@@ -22,7 +22,7 @@
 #define keyChainDeveiceUUIDKey @"DevilUUID"
 
 // 获取手机ip
-//#import "IPToolManager.h"
+#import "IPToolManager.h"
 
 @implementation Tool
 
@@ -131,10 +131,9 @@
 
 #pragma mark: -- 获取设备IP地址
 +(NSString *)getIPAddress {
-//    IPToolManager *ipManager = [IPToolManager sharedManager];
-//    NSString *ip = [ipManager currentIpAddress];
-//    return ip.length > 0 ? ip : @"error";
-    return @"";
+    IPToolManager *ipManager = [IPToolManager sharedManager];
+    NSString *ip = [ipManager currentIpAddress];
+    return ip.length > 0 ? ip : @"error";
 }
 
 #pragma mark: -- 获取设备Boundle ID

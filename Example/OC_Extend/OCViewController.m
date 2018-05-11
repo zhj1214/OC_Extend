@@ -19,13 +19,21 @@
 {
     [super viewDidLoad];
     
-    [self getAESMiXString:@"content"];
-    KScreenWidth;
+    NSLog(@"AES 加密 %@",[self getAESMiXString:@"content"]);
+    
+    NSLog(@"哈希值 %@",[self getSHA1String:@"content"]);
+    
+    NSLog(@"uuuuuuuuuuuuuuuuuu ID%@",ZHJUUID);
 }
 
 #pragma mark: ----- AES 加密
 -(NSString *)getAESMiXString:(NSString*)content {
     return aesEncryptString(content, @"PV+Z04mDndhUopCm7RYcAg==", @"X6u1xFHanXpL/R90/Ndw6Q==");
+}
+
+#pragma mark: ----- 哈希
+-(NSString *)getSHA1String:(NSString*)content {
+    return [Tool signWithSHA1:content];
 }
 
 - (void)didReceiveMemoryWarning

@@ -37,8 +37,6 @@
  */
 #define KAppVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 
-#define ZHJUUID [Tool getUserUUID]
-
 /**
  屏幕宽度
  */

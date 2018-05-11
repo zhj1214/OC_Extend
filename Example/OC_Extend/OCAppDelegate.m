@@ -8,13 +8,18 @@
 
 #import "OCAppDelegate.h"
 
-
 @implementation OCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // 定位
     [[ZhjLocation shareZHJLocation] beginUpdatingLocation];
+    
+    // iphone info
+    NSLog(@"%@",[Tool getPhoneDeviceInfo]);
+    
+    // welcome
+    [MBManager showBriefAlert:@"welcome browse"];
     return YES;
 }
 

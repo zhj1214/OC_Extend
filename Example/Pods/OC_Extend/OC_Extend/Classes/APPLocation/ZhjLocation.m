@@ -7,7 +7,7 @@
 //
 
 #import "ZhjLocation.h"
-
+#import "UIViewController+Utils.h"
 
 @interface ZhjLocation () <CLLocationManagerDelegate,UIAlertViewDelegate>
 
@@ -57,8 +57,24 @@ static ZhjLocation *share;
 #pragma mark - 定位失败  或者  用户选择不允许回调
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     if (error.code == 1) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"打开定位开关" message:@"定位服务未开启，请进入系统［设置］> [隐私] > [定位服务]中打开开关，并允许使用定位服务" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"立即开启", nil];
-        [alert show];
+        if (@available(iOS 9.0, *)) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"打开定位开关" message:@"定位服务未开启，请进入系统［设置］> [隐私] > [定位服务]中打开开关，并允许使用定位服务" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alert addAction:defaultAction];
+            
+            UIAlertAction *defaultAction1 = [UIAlertAction actionWithTitle:@"立即开启" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self alertViewStyle];
+            }];
+            [alert addAction:defaultAction1];
+            
+            UIViewController *currentViewController = [UIViewController currentViewController];
+            [currentViewController presentViewController:alert animated:YES completion:nil];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"打开定位开关" message:@"定位服务未开启，请进入系统［设置］> [隐私] > [定位服务]中打开开关，并允许使用定位服务" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"立即开启", nil];
+            [alert show];
+        }
     }
 }
 
@@ -69,9 +85,13 @@ static ZhjLocation *share;
         if ([version floatValue] >= 10) {
             NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
             if([[UIApplication sharedApplication]canOpenURL:url]) {
-                [[UIApplication sharedApplication]openURL:url options:@{} completionHandler:^(BOOL success) {
-                    
-                }];
+                if (@available(iOS 10.0, *)) {
+                    [[UIApplication sharedApplication]openURL:url options:@{} completionHandler:^(BOOL success) {
+                        
+                    }];
+                } else {
+                    // Fallback on earlier versions
+                }
             }
         } else {
             NSURL* url = [NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"];
@@ -81,6 +101,28 @@ static ZhjLocation *share;
         }
     }
 }
+
+-(void)alertViewStyle {
+        NSString *version = [UIDevice currentDevice].systemVersion;
+        if ([version floatValue] >= 10) {
+            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            if([[UIApplication sharedApplication]canOpenURL:url]) {
+                if (@available(iOS 10.0, *)) {
+                    [[UIApplication sharedApplication]openURL:url options:@{} completionHandler:^(BOOL success) {
+                        
+                    }];
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+        } else {
+            NSURL* url = [NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"];
+            if( [[UIApplication sharedApplication]canOpenURL:url] ) {
+                [[UIApplication sharedApplication]openURL:url];
+            }
+        }
+}
+
 #pragma mark - location delegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     
@@ -121,3 +163,4 @@ static ZhjLocation *share;
 
 
 @end
+

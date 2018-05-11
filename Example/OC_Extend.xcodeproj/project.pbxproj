@@ -566,6 +566,7 @@
 			baseConfigurationReference = 5788F7580C732F589BC9E47C /* Pods-OC_Extend_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				DEVELOPMENT_TEAM = K7W2W4ASWV;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OC_Extend/OC_Extend-Prefix.pch";
@@ -582,6 +583,7 @@
 			baseConfigurationReference = 021E742C3EAD3CBDE655F80B /* Pods-OC_Extend_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				DEVELOPMENT_TEAM = K7W2W4ASWV;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OC_Extend/OC_Extend-Prefix.pch";
