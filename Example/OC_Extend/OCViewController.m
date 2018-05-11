@@ -7,7 +7,6 @@
 //
 
 #import "OCViewController.h"
-//#import "ZJMethodHeader.h"
 #import "OC_ExtendHeader.h"
 
 @interface OCViewController ()
@@ -20,7 +19,13 @@
 {
     [super viewDidLoad];
     
+    [self getAESMiXString:@"content"];
     KScreenWidth;
+}
+
+#pragma mark: ----- AES 加密
+-(NSString *)getAESMiXString:(NSString*)content {
+    return aesEncryptString(content, @"PV+Z04mDndhUopCm7RYcAg==", @"X6u1xFHanXpL/R90/Ndw6Q==");
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,35 +14,35 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - OC_Extend (0.0.6):
+  - OC_Extend (0.0.7):
     - AFNetworking (~> 3.2)
-    - OC_Extend/APPLocation (= 0.0.6)
-    - OC_Extend/APPSeting (= 0.0.6)
-    - OC_Extend/CheckText (= 0.0.6)
-    - OC_Extend/CommonSecretData (= 0.0.6)
-    - OC_Extend/MBProgressHUD (= 0.0.6)
-    - OC_Extend/NSExtension (= 0.0.6)
-    - OC_Extend/UIExtension (= 0.0.6)
+    - OC_Extend/APPLocation (= 0.0.7)
+    - OC_Extend/APPSeting (= 0.0.7)
+    - OC_Extend/CheckText (= 0.0.7)
+    - OC_Extend/CommonSecretData (= 0.0.7)
+    - OC_Extend/MBProgressHUD (= 0.0.7)
+    - OC_Extend/NSExtension (= 0.0.7)
+    - OC_Extend/UIExtension (= 0.0.7)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/APPLocation (0.0.6):
-    - AFNetworking (~> 3.2)
-    - SAMKeychain (~> 1.5.3)
-  - OC_Extend/APPSeting (0.0.6):
+  - OC_Extend/APPLocation (0.0.7):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/CheckText (0.0.6):
+  - OC_Extend/APPSeting (0.0.7):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/CommonSecretData (0.0.6):
+  - OC_Extend/CheckText (0.0.7):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/MBProgressHUD (0.0.6):
+  - OC_Extend/CommonSecretData (0.0.7):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/NSExtension (0.0.6):
+  - OC_Extend/MBProgressHUD (0.0.7):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/UIExtension (0.0.6):
+  - OC_Extend/NSExtension (0.0.7):
+    - AFNetworking (~> 3.2)
+    - SAMKeychain (~> 1.5.3)
+  - OC_Extend/UIExtension (0.0.7):
     - AFNetworking (~> 3.2)
     - SAMKeychain (~> 1.5.3)
   - SAMKeychain (1.5.3)
@@ -56,7 +56,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  OC_Extend: 933bc17a5478b5e6f5475cb6c3c5374c5793932d
+  OC_Extend: 17070a0d7822f9c6f81555502a7a18c49b13d2b8
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
 
 PODFILE CHECKSUM: 0b23412d744b010634b8f8040f87e6f01becec6c

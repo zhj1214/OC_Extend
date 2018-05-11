@@ -7,12 +7,14 @@
 //
 
 #import "OCAppDelegate.h"
+#import "OC_ExtendHeader.h"
 
 @implementation OCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // 定位
+    [[ZhjLocation shareZHJLocation] beginUpdatingLocation];
     return YES;
 }
 

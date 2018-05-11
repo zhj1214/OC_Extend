@@ -36,8 +36,8 @@ Pod::Spec.new do |s|
   s.public_header_files = 'OC_Extend/Classes/OC_ExtendHeader.h'
 
   s.subspec 'APPSeting' do |ss|
-    ss.source_files = 'OC_Extend/Classes/Tool.{h,m}'
-    ss.public_header_files = 'OC_Extend/Classes/Tool.h'
+    ss.source_files = 'OC_Extend/Classes/APPSeting/*{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/APPSeting/*.h'
   end
 
   s.subspec 'UIExtension' do |ss|
@@ -46,16 +46,16 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'APPLocation' do |ss|
-    ss.source_files = 'OC_Extend/Classes/APPLocation/*.{h,m}'
-    ss.public_header_files = 'OC_Extend/Classes/APPLocation/*.h'
+    ss.source_files = 'OC_Extend/Classes/APPLocation/*.{h,m}','OC_Extend/Classes/UIExtension/UIViewController+Utils.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/APPLocation/*.h','OC_Extend/Classes/UIExtension/UIViewController+Utils.h'
     # ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
     # ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
     # ss.osx.frameworks = 'CoreServices'
   end
 
   s.subspec 'CheckText' do |ss|
-    ss.source_files = 'OC_Extend/Classes/CheckText/*.{h,m}'
-    ss.public_header_files = 'OC_Extend/Classes/CheckText/*.h'
+    ss.source_files = 'OC_Extend/Classes/CheckText/*.{h,m}','OC_Extend/Classes/APPSeting/AppEnum.h'
+    ss.public_header_files = 'OC_Extend/Classes/CheckText/*.h','OC_Extend/Classes/APPSeting/AppEnum.h'
   end
 
   s.subspec 'CommonSecretData' do |ss|

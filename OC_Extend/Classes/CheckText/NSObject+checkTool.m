@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+checkTool.h"
+#import "AppEnum.h"
 
 @implementation NSObject (checkTool)
 

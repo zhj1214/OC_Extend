@@ -1,6 +1,6 @@
 {
   "name": "OC_Extend",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "summary": "在这里你将看到 iOS Objective-C 的组件扩展",
   "description": "不积跬步无以至千里；每天增加一个组建的扩展功能，督促自己每天都要进步。",
   "homepage": "https://github.com/zhj1214/OC_Extend",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/zhj1214/OC_Extend.git",
-    "tag": "0.0.6"
+    "tag": "0.0.7"
   },
   "platforms": {
     "ios": "8.0"
@@ -40,8 +40,8 @@
   "subspecs": [
     {
       "name": "APPSeting",
-      "source_files": "OC_Extend/Classes/Tool.{h,m}",
-      "public_header_files": "OC_Extend/Classes/Tool.h"
+      "source_files": "OC_Extend/Classes/APPSeting/*{h,m}",
+      "public_header_files": "OC_Extend/Classes/APPSeting/*.h"
     },
     {
       "name": "UIExtension",
@@ -50,13 +50,25 @@
     },
     {
       "name": "APPLocation",
-      "source_files": "OC_Extend/Classes/APPLocation/*.{h,m}",
-      "public_header_files": "OC_Extend/Classes/APPLocation/*.h"
+      "source_files": [
+        "OC_Extend/Classes/APPLocation/*.{h,m}",
+        "OC_Extend/Classes/UIExtension/UIViewController+Utils.{h,m}"
+      ],
+      "public_header_files": [
+        "OC_Extend/Classes/APPLocation/*.h",
+        "OC_Extend/Classes/UIExtension/UIViewController+Utils.h"
+      ]
     },
     {
       "name": "CheckText",
-      "source_files": "OC_Extend/Classes/CheckText/*.{h,m}",
-      "public_header_files": "OC_Extend/Classes/CheckText/*.h"
+      "source_files": [
+        "OC_Extend/Classes/CheckText/*.{h,m}",
+        "OC_Extend/Classes/APPSeting/AppEnum.h"
+      ],
+      "public_header_files": [
+        "OC_Extend/Classes/CheckText/*.h",
+        "OC_Extend/Classes/APPSeting/AppEnum.h"
+      ]
     },
     {
       "name": "CommonSecretData",
