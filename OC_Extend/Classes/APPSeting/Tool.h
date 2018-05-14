@@ -33,6 +33,22 @@
 +(void)getMainQueu:(void (^)(void))mainTask;
 
 /**
+ 系统延迟方法 不可取消 延迟执行
+ 
+ @param action 方法
+ @param time 时间
+ */
++(void)delayStarFuntionSystem:(SEL)action time:(NSTimeInterval)time;
+
+/**
+ 延迟方法 不可取消
+ 
+ @param action 方法
+ @param time 时间
+ */
++(void)delayStarFuntionGCD:(NSTimeInterval)time block:(void (^)(void))action;
+
+/**
  获取手机设备信息
  @return 手机基本json信息
  */

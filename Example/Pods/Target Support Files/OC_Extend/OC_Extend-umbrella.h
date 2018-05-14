@@ -27,6 +27,7 @@
 #import "UIButton+touch.h"
 #import "UIColor+HexValue.h"
 #import "UIViewController+Utils.h"
+#import "ZJAlertViewController.h"
 
 FOUNDATION_EXPORT double OC_ExtendVersionNumber;
 FOUNDATION_EXPORT const unsigned char OC_ExtendVersionString[];

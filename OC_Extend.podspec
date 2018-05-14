@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OC_Extend'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = '在这里你将看到 iOS Objective-C 的组件扩展'
 
   s.description      = <<-DESC
@@ -96,6 +96,11 @@ Pod::Spec.new do |s|
   s.subspec 'NSExtension' do |ss|
     ss.source_files = 'OC_Extend/Classes/NSExtension/**/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/NSExtension/**/*.h'
+  end
+
+  s.subspec 'ZHJAlertViewController' do |ss|
+    ss.source_files = 'OC_Extend/Classes/ZHJAlertViewController/**/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/ZHJAlertViewController/**/*.h'
   end
 
   s.subspec 'MBProgressHUD' do |ss|

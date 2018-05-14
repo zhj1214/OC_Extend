@@ -24,6 +24,23 @@
     NSLog(@"哈希值 %@",[self getSHA1String:@"content"]);
     
     NSLog(@"uuuuuuuuuuuuuuuuuu ID%@",ZHJUUID);
+    
+//    [self performSelector:@selector(delayMethod) withObject:nil afterDelay:3];
+    [Tool delayStarFuntionGCD:3 block:^{
+        [self delayMethod];
+    }];
+    
+}
+
+// 提示框
+- (void)delayMethod {
+    [ZHJAlertViewController alertShowTitle:@"哈哈哈" message:@"逗逼你好" cancelButtonTitle:@"承认" otherButtonTitles:@"说得对" block:^(NSInteger buttonIndex) {
+        if (buttonIndex == 0) {
+            Log(@"有意思");
+        } else {
+            Log(@"你好");
+        }
+    }];
 }
 
 #pragma mark: ----- AES 加密

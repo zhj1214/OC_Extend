@@ -9,7 +9,6 @@
 #import "ZHJNetworkManager.h"
 #import "AFNetworking.h"
 #import "Tool.h"
-#define SERVERURL @"https://..."
 
 @interface ZHJNetworkManager()
 
@@ -85,7 +84,7 @@ static ZHJNetworkManager *networkManager = nil;
                                              success:(nullable void(^) (BOOL isSuccess, id _Nullable responseObject))success
                                              failure:(nullable void(^) (NSString * _Nullable errorMessage))failure {
     WS(weakSelf);
-    NSString *requestPath = [SERVERURL stringByAppendingPathComponent:apiPath];
+    NSString *requestPath = [apiPath stringByAppendingPathComponent:apiPath];
     NSURLSessionDataTask * task = nil;
     switch (requestMethod) {
         case HTTPMethodGET:
@@ -165,21 +164,6 @@ static ZHJNetworkManager *networkManager = nil;
     }
     
     return task;
-}
-
-#pragma mark: -- 异常错误上报
--(void)reportDevicesErrorInfo:(NSString*)errorInfo {
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:[Tool getUserUUID] forKey:@"uuid"];
-    [dic setObject:@"iOS" forKey:@"osType"];
-    [dic setObject:[Tool getSystemVersion] forKey:@"osVersion"];
-    [dic setObject:errorInfo forKey:@"traceInfo"];
-    
-    [self sendRequestMethod:HTTPMethodPOST apiPath:@"/authPlatform/reportTraceInfo" parameters:dic progress:nil success:^(BOOL isSuccess, id  _Nullable responseObject) {
-        NSLog(@"异常错误上报 成功");
-    } failure:^(NSString * _Nullable errorMessage) {
-        NSLog(@"异常错误上报 失败");
-    }];
 }
 
 #pragma mark POST 上传图片

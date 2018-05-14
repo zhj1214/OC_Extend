@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #define WS(weakSelf) __weak __typeof(&*self)weakSelf = self;
-#define ValidationIdentityURL @"https://cloudapi.linkface.cn/identity/liveness_idnumber_verification"
 
 /**
  * GET：获取资源，不会改动资源
@@ -76,10 +75,4 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
                                                         success:(nullable void(^) (BOOL isSuccess, id _Nullable responseObject))success
                                                         failure:(nullable void(^) (NSString *_Nullable error))failure ;
 
-/**
- 异常上报
- 
- @param errorInfo 异常信息
- */
--(void)reportDevicesErrorInfo:(NSString*)errorInfo;
 @end

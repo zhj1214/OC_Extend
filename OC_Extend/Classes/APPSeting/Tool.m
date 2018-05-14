@@ -48,6 +48,17 @@
     });
 }
 
+#pragma mark: -- 系统延迟方法 不可取消 延迟执行
++(void)delayStarFuntionSystem:(SEL)action time:(NSTimeInterval)time {
+    [self performSelector:action withObject:nil afterDelay:time];
+}
+
++(void)delayStarFuntionGCD:(NSTimeInterval)time block:(void (^)(void))action {
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC));
+    dispatch_after(delayTime, dispatch_get_main_queue(), action);
+}
+
+
 #pragma mark: -- 获取手机设备信息
 +(NSString*)getPhoneDeviceInfo {
     NSString *ip = [Tool getIPAddress];
