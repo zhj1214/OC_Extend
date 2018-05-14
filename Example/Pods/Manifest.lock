@@ -14,41 +14,47 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - OC_Extend (0.0.9):
+  - OC_Extend (0.1.0):
     - AFNetworking (~> 3.2.1)
-    - OC_Extend/APPLocation (= 0.0.9)
-    - OC_Extend/APPSeting (= 0.0.9)
-    - OC_Extend/CheckText (= 0.0.9)
-    - OC_Extend/CommonSecretData (= 0.0.9)
-    - OC_Extend/IPTool (= 0.0.9)
-    - OC_Extend/MBProgressHUD (= 0.0.9)
-    - OC_Extend/NSExtension (= 0.0.9)
-    - OC_Extend/UIExtension (= 0.0.9)
+    - OC_Extend/APPLocation (= 0.1.0)
+    - OC_Extend/APPSeting (= 0.1.0)
+    - OC_Extend/CheckText (= 0.1.0)
+    - OC_Extend/CommonSecretData (= 0.1.0)
+    - OC_Extend/IPTool (= 0.1.0)
+    - OC_Extend/MBProgressHUD (= 0.1.0)
+    - OC_Extend/NetworkManager (= 0.1.0)
+    - OC_Extend/NSExtension (= 0.1.0)
+    - OC_Extend/UIExtension (= 0.1.0)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/APPLocation (0.0.9):
+  - OC_Extend/APPLocation (0.1.0):
     - AFNetworking (~> 3.2.1)
     - OC_Extend/UIExtension
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/APPSeting (0.0.9):
+  - OC_Extend/APPSeting (0.1.0):
     - AFNetworking (~> 3.2.1)
+    - OC_Extend/IPTool
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/CheckText (0.0.9):
+  - OC_Extend/CheckText (0.1.0):
     - AFNetworking (~> 3.2.1)
     - OC_Extend/APPSeting
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/CommonSecretData (0.0.9):
+  - OC_Extend/CommonSecretData (0.1.0):
     - AFNetworking (~> 3.2.1)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/IPTool (0.0.9):
+  - OC_Extend/IPTool (0.1.0):
     - AFNetworking (~> 3.2.1)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/MBProgressHUD (0.0.9):
+  - OC_Extend/MBProgressHUD (0.1.0):
     - AFNetworking (~> 3.2.1)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/NSExtension (0.0.9):
+  - OC_Extend/NetworkManager (0.1.0):
+    - AFNetworking (~> 3.2.1)
+    - OC_Extend/APPSeting
+    - SAMKeychain (~> 1.5.3)
+  - OC_Extend/NSExtension (0.1.0):
     - AFNetworking (~> 3.2.1)
     - SAMKeychain (~> 1.5.3)
-  - OC_Extend/UIExtension (0.0.9):
+  - OC_Extend/UIExtension (0.1.0):
     - AFNetworking (~> 3.2.1)
     - SAMKeychain (~> 1.5.3)
   - SAMKeychain (1.5.3)
@@ -62,7 +68,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  OC_Extend: 43e065119a22596c0a7214b52ec1a5899ff5b4dc
+  OC_Extend: e4491924c6553419dae3accc5ebb8c21aab37037
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
 
 PODFILE CHECKSUM: d483991c1bd7aca3eb8be21928936ccd5591788c

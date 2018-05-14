@@ -1,6 +1,6 @@
 {
   "name": "OC_Extend",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "summary": "在这里你将看到 iOS Objective-C 的组件扩展",
   "description": "不积跬步无以至千里；每天增加一个组建的扩展功能，督促自己每天都要进步。",
   "homepage": "https://github.com/zhj1214/OC_Extend",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/zhj1214/OC_Extend.git",
-    "tag": "0.0.9"
+    "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
@@ -24,8 +24,11 @@
     "CFNetwork",
     "Foundation",
     "QuartzCore",
-    "MapKit"
+    "MapKit",
+    "MobileCoreServices",
+    "CoreGraphics"
   ],
+  "libraries": "iconv",
   "dependencies": {
     "AFNetworking": [
       "~> 3.2.1"
@@ -40,30 +43,59 @@
   "subspecs": [
     {
       "name": "IPTool",
-      "source_files": [
-        "OC_Extend/Classes/APPSeting/IPAddressConfig.{h,m}",
-        "OC_Extend/Classes/APPSeting/IPToolManager.{h,m}"
-      ],
-      "public_header_files": [
-        "OC_Extend/Classes/APPSeting/IPAddressConfig.h",
-        "OC_Extend/Classes/APPSeting/IPToolManager.h"
-      ]
+      "source_files": "OC_Extend/Classes/IPTool/*.{h,m}",
+      "public_header_files": "OC_Extend/Classes/IPTool/*.h"
     },
     {
       "name": "APPSeting",
-      "platforms": {
-        "ios": "8.0"
+      "dependencies": {
+        "OC_Extend/IPTool": [
+
+        ]
       },
-      "source_files": [
-        "OC_Extend/Classes/APPSeting/Tool.{h,m}",
-        "OC_Extend/Classes/APPSeting/AppEnum.h",
-        "OC_Extend/Classes/APPSeting/APPGlobalDefine.h"
-      ],
-      "public_header_files": [
-        "OC_Extend/Classes/APPSeting/Tool.h",
-        "OC_Extend/Classes/APPSeting/AppEnum.h",
-        "OC_Extend/Classes/APPSeting/APPGlobalDefine.h"
-      ]
+      "ios": {
+        "dependencies": {
+          "OC_Extend/IPTool": [
+
+          ]
+        }
+      },
+      "source_files": "OC_Extend/Classes/APPSeting/*.{h,m}",
+      "public_header_files": "OC_Extend/Classes/APPSeting/*.h"
+    },
+    {
+      "name": "CheckText",
+      "dependencies": {
+        "OC_Extend/APPSeting": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "OC_Extend/APPSeting": [
+
+          ]
+        }
+      },
+      "source_files": "OC_Extend/Classes/CheckText/*.{h,m}",
+      "public_header_files": "OC_Extend/Classes/CheckText/*.h"
+    },
+    {
+      "name": "NetworkManager",
+      "dependencies": {
+        "OC_Extend/APPSeting": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "OC_Extend/APPSeting": [
+
+          ]
+        }
+      },
+      "source_files": "OC_Extend/Classes/NetworkManager/*.{h,m}",
+      "public_header_files": "OC_Extend/Classes/NetworkManager/*.h"
     },
     {
       "name": "CommonSecretData",
@@ -94,23 +126,6 @@
       },
       "source_files": "OC_Extend/Classes/APPLocation/*.{h,m}",
       "public_header_files": "OC_Extend/Classes/APPLocation/*.h"
-    },
-    {
-      "name": "CheckText",
-      "dependencies": {
-        "OC_Extend/APPSeting": [
-
-        ]
-      },
-      "ios": {
-        "dependencies": {
-          "OC_Extend/APPSeting": [
-
-          ]
-        }
-      },
-      "source_files": "OC_Extend/Classes/CheckText/*.{h,m}",
-      "public_header_files": "OC_Extend/Classes/CheckText/*.h"
     },
     {
       "name": "NSExtension",

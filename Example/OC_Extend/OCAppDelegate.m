@@ -20,6 +20,7 @@
     
     // welcome
     [MBManager showBriefAlert:@"welcome browse"];
+    
     return YES;
 }
 
