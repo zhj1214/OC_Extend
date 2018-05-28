@@ -41,16 +41,16 @@ static ZHJNetworkManager *networkManager = nil;
  */
 -(instancetype)init {
     if (self = [super init]) {
-//        //无条件的信任服务器上的证书
-//        AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
-//
-//        // 客户端是否信任非法证书
-//        securityPolicy.allowInvalidCertificates = YES;
-//
-//        // 是否在证书域字段中验证域名
-//        securityPolicy.validatesDomainName = NO;
+        //        //无条件的信任服务器上的证书
+        //        AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
+        //
+        //        // 客户端是否信任非法证书
+        //        securityPolicy.allowInvalidCertificates = YES;
+        //
+        //        // 是否在证书域字段中验证域名
+        //        securityPolicy.validatesDomainName = NO;
         
-//        self.sessionManager.securityPolicy = securityPolicy;
+        //        self.sessionManager.securityPolicy = securityPolicy;
         
         self.sessionManager = [AFHTTPSessionManager manager];
         // 设置请求以及相应的序列化器
@@ -84,7 +84,7 @@ static ZHJNetworkManager *networkManager = nil;
                                              success:(nullable void(^) (BOOL isSuccess, id _Nullable responseObject))success
                                              failure:(nullable void(^) (NSString * _Nullable errorMessage))failure {
     WS(weakSelf);
-    NSString *requestPath = [apiPath stringByAppendingPathComponent:apiPath];
+    NSString *requestPath = apiPath;
     NSURLSessionDataTask * task = nil;
     switch (requestMethod) {
         case HTTPMethodGET:
@@ -155,10 +155,10 @@ static ZHJNetworkManager *networkManager = nil;
                     [weakSelf printParamSeting:parameters task:task response:responseObject];
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    if (failure) {
-                        failure([self failHandleWithErrorResponse:error task:task]);
-                    }
-                }];
+                if (failure) {
+                    failure([self failHandleWithErrorResponse:error task:task]);
+                }
+            }];
         }
             break;
     }
@@ -197,8 +197,8 @@ static ZHJNetworkManager *networkManager = nil;
         // 上传图片时，为了用户体验或是考虑到性能需要进行压缩
         for (UIImage * image in imageArray) {
             // 压缩图片，指定宽度（注释：imageCompressed：withdefineWidth：图片压缩的category）
-            #warning important 这里 忘记写这个方法了
-//            UIImage * resizedImage =  [UIImage imageCompressed:image withdefineWidth:width];
+#warning important 这里 忘记写这个方法了
+            //            UIImage * resizedImage =  [UIImage imageCompressed:image withdefineWidth:width];
             NSData * imgData = UIImageJPEGRepresentation(image, 0.5);
             // 拼接Data
             [formData appendPartWithFileData:imgData name:[NSString stringWithFormat:@"picflie%ld",(long)i] fileName:@"image.png" mimeType:@" image/jpeg"];
@@ -218,8 +218,9 @@ static ZHJNetworkManager *networkManager = nil;
 #pragma mark 请求参数打印
 -(void)printParamSeting:(NSDictionary*)dic task:( NSURLSessionDataTask * _Nullable )task response:(id)responseObject {
     NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
-    NSDictionary *dictemp = @{@"URL":response.URL.absoluteString,@"param":dic,@"header":response.allHeaderFields,@"response":responseObject};
+    NSDictionary *dictemp = @{@"URL":response.URL.absoluteString,@"param":dic,@"header":response.allHeaderFields};
     NSLog(@"请求内容:%@",dictemp);
+    NSLog(@"response:%@",responseObject);
 }
 
 #pragma mark 报错信息
@@ -254,3 +255,4 @@ static ZHJNetworkManager *networkManager = nil;
 }
 
 @end
+

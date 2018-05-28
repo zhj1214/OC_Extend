@@ -98,9 +98,9 @@
  打印输出
  */
 #if DEBUG
-#define NSLog(FORMAT, ...) fprintf(stderr,"\nfunction:%s line:%d content:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#define ZHJLog(FORMAT, ...) fprintf(stderr,"\nfunction:%s line:%d content:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 #else
-#define NSLog(FORMAT, ...) nil
+#define ZHJLog(FORMAT, ...) nil
 #endif
 
 /**

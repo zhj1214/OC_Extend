@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OC_Extend'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = '在这里你将看到 iOS Objective-C 的组件扩展'
 
   s.description      = <<-DESC
@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
 
   s.dependency "AFNetworking", "~> 3.2.1"
   s.dependency "SAMKeychain", "~> 1.5.3"
+  s.dependency "IQKeyboardManager","~> 6.0.3"
   # s.dependency "MyOftenUseTool"
 
   s.requires_arc = true
@@ -83,9 +84,6 @@ Pod::Spec.new do |s|
   s.subspec 'APPLocation' do |ss|
     ss.dependency 'OC_Extend/UIExtension'
     ss.ios.dependency 'OC_Extend/UIExtension'
-
-# ,'OC_Extend/Classes/UIExtension/UIViewController/UIViewController+Utils.{h,m}'
-# ,'OC_Extend/Classes/UIExtension/UIViewController/UIViewController+Utils.h'
     ss.source_files = 'OC_Extend/Classes/APPLocation/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/APPLocation/*.h'
     # ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
