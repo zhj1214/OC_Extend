@@ -36,9 +36,9 @@
 - (void)delayMethod {
     [ZHJAlertViewController alertShowTitle:@"哈哈哈" message:@"逗逼你好" cancelButtonTitle:@"承认" otherButtonTitles:@"说得对" block:^(NSInteger buttonIndex) {
         if (buttonIndex == 0) {
-            Log(@"有意思");
+            NSLog(@"有意思");
         } else {
-            Log(@"你好");
+            NSLog(@"你好");
         }
     }];
 }

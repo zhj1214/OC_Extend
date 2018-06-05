@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
- 
+
 typedef void(^continueNoParamBlock)(void);
 typedef void(^continueBlock )(NSInteger buttonIndex);
-
 
 @interface ZHJAlertViewController : NSObject
 

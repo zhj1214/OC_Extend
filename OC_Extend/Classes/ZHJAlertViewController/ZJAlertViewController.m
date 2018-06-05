@@ -9,7 +9,7 @@
 #import "ZJAlertViewController.h"
 #import <objc/runtime.h>
 #import <UIKit/UIKit.h>
-
+#import "UIViewController+Utils.h"
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
 
 static const char AlertBlockKey;
@@ -57,7 +57,7 @@ static const char AlertBlockKey;
             [alert addAction:defaultAction];
         }
         
-        UIViewController *currentViewController = [ZHJAlertViewController getCurrentViewController];
+        UIViewController *currentViewController = [UIViewController currentViewController];
         [currentViewController presentViewController:alert animated:YES completion:nil];
         
     }else {
@@ -107,39 +107,5 @@ static const char AlertBlockKey;
         alertBlock(buttonIndex);
     }
 }
-
-
-/**
- *  获取当前的显示的ViewController
- */
-+ (nullable UIViewController *)getCurrentViewController{
-    
-    UIViewController *result = nil;
-    
-    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
-    if (window.windowLevel != UIWindowLevelNormal)
-    {
-        NSArray *windows = [[UIApplication sharedApplication] windows];
-        for(UIWindow * tmpWin in windows)
-        {
-            if (tmpWin.windowLevel == UIWindowLevelNormal)
-            {
-                window = tmpWin;
-                break;
-            }
-        }
-    }
-    
-    UIView *frontView = [[window subviews] objectAtIndex:0];
-    id nextResponder = [frontView nextResponder];
-    
-    if ([nextResponder isKindOfClass:[UIViewController class]])
-        result = nextResponder;
-    else
-        result = window.rootViewController;
-    
-    return result;
-}
-
 
 @end

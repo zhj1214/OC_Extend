@@ -96,7 +96,7 @@ static ZHJNetworkManager *networkManager = nil;
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 if (failure) {
-                    failure([self failHandleWithErrorResponse:error task:task]);
+                    failure([self failHandleWithErrorResponse:error ParamSeting:parameters task:task]);
                 }
             }];
         }
@@ -111,7 +111,7 @@ static ZHJNetworkManager *networkManager = nil;
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 if (failure) {
-                    failure([self failHandleWithErrorResponse:error task:task]);
+                    failure([self failHandleWithErrorResponse:error ParamSeting:parameters task:task]);
                 }
             }];
         }
@@ -126,7 +126,7 @@ static ZHJNetworkManager *networkManager = nil;
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 if (failure) {
-                    failure([self failHandleWithErrorResponse:error task:task]);
+                    failure([self failHandleWithErrorResponse:error ParamSeting:parameters task:task]);
                 }
             }];
         }
@@ -141,7 +141,7 @@ static ZHJNetworkManager *networkManager = nil;
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 if (failure) {
-                    failure([self failHandleWithErrorResponse:error task:task]);
+                    failure([self failHandleWithErrorResponse:error ParamSeting:parameters task:task]);
                 }
             }];
         }
@@ -156,7 +156,7 @@ static ZHJNetworkManager *networkManager = nil;
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 if (failure) {
-                    failure([self failHandleWithErrorResponse:error task:task]);
+                    failure([self failHandleWithErrorResponse:error ParamSeting:parameters task:task]);
                 }
             }];
         }
@@ -209,7 +209,7 @@ static ZHJNetworkManager *networkManager = nil;
         if (success)success(YES,responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        if (failure) failure([self failHandleWithErrorResponse:error task:task]);
+        if (failure) failure([self failHandleWithErrorResponse:error ParamSeting:parameters task:task]);
         
     }];
     return task;
@@ -218,9 +218,13 @@ static ZHJNetworkManager *networkManager = nil;
 #pragma mark 请求参数打印
 -(void)printParamSeting:(NSDictionary*)dic task:( NSURLSessionDataTask * _Nullable )task response:(id)responseObject {
     NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
-    NSDictionary *dictemp = @{@"URL":response.URL.absoluteString,@"param":dic,@"header":response.allHeaderFields};
-    NSLog(@"请求内容:%@",dictemp);
-    NSLog(@"response:%@",responseObject);
+    if (dic && response) {
+        NSDictionary *dictemp = @{@"URL":response.URL.absoluteString,@"param":dic,@"header":response.allHeaderFields};
+        NSLog(@"请求内容:%@",dictemp);
+    }
+    if (responseObject) {
+        NSLog(@"response:%@",responseObject);
+    }
 }
 
 #pragma mark 报错信息
@@ -231,11 +235,13 @@ static ZHJNetworkManager *networkManager = nil;
  @param task 任务
  @return description
  */
-- (NSString *)failHandleWithErrorResponse:( NSError * _Nullable )error task:( NSURLSessionDataTask * _Nullable )task {
+- (NSString *)failHandleWithErrorResponse:( NSError * _Nullable )error ParamSeting:(NSDictionary*)dic task:( NSURLSessionDataTask * _Nullable )task {
     __block NSString *message = nil;
+    // 打印请求 参数
+    [self printParamSeting:dic task:task response:nil];
     // 这里可以直接设定错误反馈，也可以利用AFN 的error信息直接解析展示
     NSData *afNetworking_errorMsg = [error.userInfo objectForKey:AFNetworkingOperationFailingURLResponseDataErrorKey];
-    NSLog(@"afNetworking_errorMsg == %@",[[NSString alloc]initWithData:afNetworking_errorMsg encoding:NSUTF8StringEncoding]);
+    NSLog(@"afNetworking_错误信息:/n %@",[[NSString alloc]initWithData:afNetworking_errorMsg encoding:NSUTF8StringEncoding]);
     if (!afNetworking_errorMsg) {
         message = @"网络连接失败";
     }
@@ -250,9 +256,10 @@ static ZHJNetworkManager *networkManager = nil;
             message = responseObject[@"error"];
         }
     }
-    NSLog(@"error == %@",error);
+    NSLog(@"错误信息：\n %@",error);
     return message;
 }
 
 @end
+
 

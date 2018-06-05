@@ -7,7 +7,7 @@
 //
 
 #import "NSObject+checkTool.h"
-#import "AppEnum.h"
+
 
 @implementation NSObject (checkTool)
 
@@ -127,13 +127,9 @@
 }
 
 #pragma mark -- 判断是否是英文名
-+ (BOOL)isEnglishName:(NSString *)name{
++ (ChineseFormatType)isEnglishName:(NSString *)name{
     ChineseFormatType type = [self chineseFormat:[name stringByReplacingOccurrencesOfString:@" " withString:@""]];
-    if ((type == NameAllEnglish)||(type == NameAllChinses)||(type == NameChinsesAndEnglish)) {
-        return YES;
-    }else{
-        return NO;
-    }
+    return type;
 }
 
 // 中文姓名格式   写的真麻烦以后有机会再优化

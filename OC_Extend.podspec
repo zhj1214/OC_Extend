@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OC_Extend'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = '在这里你将看到 iOS Objective-C 的组件扩展'
 
   s.description      = <<-DESC
@@ -51,8 +51,6 @@ Pod::Spec.new do |s|
     ss.public_header_files = 'OC_Extend/Classes/APPSeting/*.h'
   end
 
-  
-
   s.subspec 'CheckText' do |ss|
     ss.dependency 'OC_Extend/APPSeting'
     ss.ios.dependency 'OC_Extend/APPSeting'
@@ -97,6 +95,10 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'ZHJAlertViewController' do |ss|
+  	# 引用了 获取当前试图控制器的方法
+  	ss.dependency 'OC_Extend/UIExtension'
+    ss.ios.dependency 'OC_Extend/UIExtension'
+
     ss.source_files = 'OC_Extend/Classes/ZHJAlertViewController/**/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/ZHJAlertViewController/**/*.h'
   end

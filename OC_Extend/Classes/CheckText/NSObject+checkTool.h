@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AppEnum.h"
 
 //typedef NS_OPTIONS(NSUInteger, ChineseFormatType) {
 //    NameAllChinses,             //全部中文
@@ -146,7 +147,7 @@
  *
  *  @return 结果
  */
-+ (BOOL)isEnglishName:(NSString *)name;
++ (ChineseFormatType)isEnglishName:(NSString *)name;
 
 /**
  *  中文转英文  例:张小凡 - > xiaofan/zhang
