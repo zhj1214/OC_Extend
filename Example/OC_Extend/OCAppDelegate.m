@@ -15,10 +15,7 @@
     [[ZhjLocation shareZHJLocation] beginUpdatingLocation];
     
     // iphone info
-    NSLog(@"%@",[Tool getPhoneDeviceInfo]);
-    
-    // welcome
-    [MBManager showBriefAlert:@"welcome browse"];
+//    NSLog(@"%@",[Tool getPhoneDeviceInfo]);
     
     return YES;
 }

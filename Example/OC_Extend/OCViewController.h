@@ -7,6 +7,7 @@
 //
 
 @import UIKit;
+#import "TestMethodSwizzling.h"
 
 @interface OCViewController : UIViewController
 

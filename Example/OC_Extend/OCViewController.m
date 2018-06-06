@@ -8,6 +8,7 @@
 
 #import "OCViewController.h"
 #import "OC_ExtendHeader.h"
+#import <GBDeviceInfo/GBDeviceInfo.h>
 
 @interface OCViewController ()
 
@@ -19,22 +20,54 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"AES 加密 %@",[self getAESMiXString:@"content"]);
+    [self getDeviceIPAddress];
     
-    NSLog(@"哈希值 %@",[self getSHA1String:@"content"]);
+    [self testMethodSwizzling];
     
-    NSLog(@"uuuuuuuuuuuuuuuuuu ID%@",ZHJUUID);
     
-//    [self performSelector:@selector(delayMethod) withObject:nil afterDelay:3];
     [Tool delayStarFuntionGCD:3 block:^{
         [self delayMethod];
     }];
     
 }
+#pragma mark: -- 获取设备信息
+-(NSString *)getDeviceIPAddress {
+    //方法一：此方法获取具体的ip地址
+    IPToolManager *ipManager = [IPToolManager sharedManager];
+    NSString *ip = [ipManager currentIpAddress];
+    if (!ip) {
+        ip = [ipManager currentIPAdressDetailInfo];
+    }
+    
+    NSString* userPhoneName = [[UIDevice currentDevice] name];
+    NSString* phoneVersion = [[UIDevice currentDevice] systemVersion];
+    NSString* deviceName = [[UIDevice currentDevice] systemName];
+    NSLog(@"设备类型：%@ \n%@ \n手机型号：%@ \n系统版本：%@ \n设备的ip地址：%@ \n UDID %@",deviceName,userPhoneName,[GBDeviceInfo deviceInfo].modelString,phoneVersion,ip,ZHJUUID);
+    
+    NSLog(@"对 %@ 进行 AES 加密 %@",userPhoneName,[self getAESMiXString:userPhoneName]);
+    
+    NSLog(@"对 %@ 进行 SHA1哈希值 %@",userPhoneName,[self getSHA1String:userPhoneName]);
+    return ip.length > 0 ? ip : @"error";
+}
 
-// 提示框
+#pragma mark: -- testMethodSwizzling
+-(void)testMethodSwizzling {
+    [TestMethodSwizzling getClassObjectName];
+    
+    [TestMethodSwizzling createObject];
+    
+    [TestMethodSwizzling getSuperClassObjectName];
+    
+    [TestMethodSwizzling getInstanceVariableInfo];
+    
+    [TestMethodSwizzling getPropertyInfo];
+    
+    [TestMethodSwizzling getInstanceMethodInfo];
+}
+
+#pragma mark: -- 提示框
 - (void)delayMethod {
-    [ZHJAlertViewController alertShowTitle:@"哈哈哈" message:@"逗逼你好" cancelButtonTitle:@"承认" otherButtonTitles:@"说得对" block:^(NSInteger buttonIndex) {
+    [ZHJAlertViewController alertShowTitle:@"welcome browse" message:@"逗逼你好" cancelButtonTitle:@"承认" otherButtonTitles:@"说得对" block:^(NSInteger buttonIndex) {
         if (buttonIndex == 0) {
             NSLog(@"有意思");
         } else {

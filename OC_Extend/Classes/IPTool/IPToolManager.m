@@ -47,23 +47,38 @@
     @[ IOS_VPN @"/" IP_ADDR_IPv6, IOS_VPN @"/" IP_ADDR_IPv4, IOS_WIFI @"/" IP_ADDR_IPv6, IOS_WIFI @"/" IP_ADDR_IPv4, IOS_CELLULAR @"/" IP_ADDR_IPv6, IOS_CELLULAR @"/" IP_ADDR_IPv4 ];
     
     NSDictionary *addresses = [self getIPAddresses];
-//    NSLog(@"addresses: %@", addresses);
+    //    NSLog(@"addresses: %@", addresses);
     
     __block NSString *address;
     __block NSString *backupAddress;
-    [searchArray enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop)
-     {
-         if ([key containsString:@"en0"]) {
-             if ([key containsString:@"ipv4"]) {
-                 address = addresses[key];
+    if (addresses[@"en0/ipv4"]) {
+        [searchArray enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop)
+         {
+             if ([key containsString:@"en0"]) {
+                 if ([key containsString:@"en0/ipv4"]) {
+                     address = addresses[key];
+                 }
+             } else if ([key containsString:@"en0"]) {
+                 if ([key containsString:@"en0/ipv6"]) {
+                     backupAddress = addresses[key];
+                 }
              }
-         } else if ([key containsString:@"en0"]) {
-             if ([key containsString:@"ipv6"]) {
-                 backupAddress = addresses[key];
-             }
-         }
-         if(address && backupAddress) *stop = YES;
-     } ];
+             if(address && backupAddress) *stop = YES;
+         }];
+    } else {
+        [addresses enumerateKeysAndObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            if ([key containsString:@"en"]) {
+                if (![key containsString:@"en0"] && [key containsString:@"/ipv4"]) {
+                    address = obj;
+                } else if (![key containsString:@"en0"] && [key containsString:@"/ipv6"]){
+                    backupAddress = obj;
+                }
+            }
+            //            NSLog(@"KEY  %@___%@",key,obj);
+            if(address && backupAddress) *stop = YES;
+        }];
+    }
+    
     return address ? address : backupAddress;
 }
 
@@ -107,19 +122,15 @@
     return [addresses count] ? addresses : nil;
 }
 
-
-
-
-
 #pragma mark - 方法二
--(void)currentIPAdressDetailInfo{
+-(NSString*)currentIPAdressDetailInfo{
     
     InitAddresses();
     GetIPAddresses();
     GetHWAddresses();
     
     int i;
-//    NSString *deviceIP = nil;
+    //    NSString *deviceIP = nil;
     for (i=0; i<MAXADDRS; ++i)
     {
         static unsigned long localHost = 0x7F000001;            // 127.0.0.1
@@ -131,8 +142,14 @@
         if (theAddr == localHost) continue;
         
         NSLog(@"Name: %s  MAC: %s  IP: %s\n", if_names[i], hw_addrs[i], ip_names[i]);
+        NSString *deviceMAC = [NSString stringWithFormat:@"%s",if_names[i]];
+        if ([deviceMAC containsString:@"en"]) {
+            return [NSString stringWithFormat:@"%s",ip_names[i]];
+        }
     }
+    return @"";
 }
 
 
 @end
+

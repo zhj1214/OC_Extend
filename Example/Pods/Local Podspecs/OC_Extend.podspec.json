@@ -1,6 +1,6 @@
 {
   "name": "OC_Extend",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "summary": "在这里你将看到 iOS Objective-C 的组件扩展",
   "description": "不积跬步无以至千里；每天增加一个组建的扩展功能，督促自己每天都要进步。",
   "homepage": "https://github.com/zhj1214/OC_Extend",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/zhj1214/OC_Extend.git",
-    "tag": "0.1.2"
+    "tag": "0.1.3"
   },
   "platforms": {
     "ios": "8.0"
@@ -137,6 +137,18 @@
     },
     {
       "name": "ZHJAlertViewController",
+      "dependencies": {
+        "OC_Extend/UIExtension": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "OC_Extend/UIExtension": [
+
+          ]
+        }
+      },
       "source_files": "OC_Extend/Classes/ZHJAlertViewController/**/*.{h,m}",
       "public_header_files": "OC_Extend/Classes/ZHJAlertViewController/**/*.h"
     },

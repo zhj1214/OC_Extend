@@ -27,6 +27,6 @@
  *  方法二
  *  获取ip地址的详细信息
  */
--(void)currentIPAdressDetailInfo;
+-(NSString*)currentIPAdressDetailInfo;
 
 @end
