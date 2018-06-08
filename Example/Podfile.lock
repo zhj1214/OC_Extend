@@ -83,17 +83,24 @@ DEPENDENCIES:
   - GBDeviceInfo
   - OC_Extend (from `../`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - GBDeviceInfo
+    - IQKeyboardManager
+    - SAMKeychain
+
 EXTERNAL SOURCES:
   OC_Extend:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   GBDeviceInfo: 2c65ceb9404f9079264d4c238f5b81916fdfc5e2
   IQKeyboardManager: c390e612f4b98c8fd748016470138537dc163ead
-  OC_Extend: 0cc71250866732c1032c92599635bb5e7313db91
+  OC_Extend: abfe07983ea65f07617552e2aab6a3b04f7cac1f
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
 
 PODFILE CHECKSUM: de3b370e47d13740196f7b8272217c084657faa0
 
-COCOAPODS: 1.4.0.beta.2
+COCOAPODS: 1.5.3

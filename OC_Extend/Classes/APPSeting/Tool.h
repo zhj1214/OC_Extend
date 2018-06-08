@@ -126,5 +126,11 @@
  */
 +(NSString *)getNowTimeTimestamp;
 
+/**
+ View上添加文字 绘制图层
+ 
+ @param laebl UIlabel控件
+ */
++(void)drawText:(UILabel*)laebl;
 @end
 

@@ -10,5 +10,6 @@
 #import "TestMethodSwizzling.h"
 
 @interface OCViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

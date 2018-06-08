@@ -24,6 +24,8 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		F203359520C8D0E3001AC315 /* ZHJLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F203359320C8D0E3001AC315 /* ZHJLabel.m */; };
+		F203359B20C8D446001AC315 /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F203359A20C8D446001AC315 /* BaseLabel.m */; };
 		F2E1068D20C78EA100278FF3 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E1068C20C78EA100278FF3 /* Person.m */; };
 		F2E1069220C78F4400278FF3 /* TestMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E1069120C78F4400278FF3 /* TestMethodSwizzling.m */; };
 		F2E1069520C7DCD800278FF3 /* Person+Car.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E1069420C7DCD800278FF3 /* Person+Car.m */; };
@@ -70,6 +72,10 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7941179075166EC92B863C1B /* OC_Extend.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = OC_Extend.podspec; path = ../OC_Extend.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F203359320C8D0E3001AC315 /* ZHJLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHJLabel.m; sourceTree = "<group>"; };
+		F203359420C8D0E3001AC315 /* ZHJLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHJLabel.h; sourceTree = "<group>"; };
+		F203359920C8D446001AC315 /* BaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLabel.h; sourceTree = "<group>"; };
+		F203359A20C8D446001AC315 /* BaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLabel.m; sourceTree = "<group>"; };
 		F2E1068B20C78EA100278FF3 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		F2E1068C20C78EA100278FF3 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		F2E1069020C78F4400278FF3 /* TestMethodSwizzling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestMethodSwizzling.h; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 		6003F593195388D20070C39A /* Example for OC_Extend */ = {
 			isa = PBXGroup;
 			children = (
+				F203359120C8D0E3001AC315 /* Common */,
 				F2E1068F20C78F2400278FF3 /* TestClass */,
 				F2E1068A20C78EA100278FF3 /* TestModel */,
 				6003F59C195388D20070C39A /* OCAppDelegate.h */,
@@ -207,6 +214,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F203359120C8D0E3001AC315 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F203359220C8D0E3001AC315 /* UILabel */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F203359220C8D0E3001AC315 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				F203359920C8D446001AC315 /* BaseLabel.h */,
+				F203359A20C8D446001AC315 /* BaseLabel.m */,
+				F203359320C8D0E3001AC315 /* ZHJLabel.m */,
+				F203359420C8D0E3001AC315 /* ZHJLabel.h */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
 		F2E1068A20C78EA100278FF3 /* TestModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,7 +265,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				A8F5B5473A32E0912C166C7D /* [CP] Embed Pods Frameworks */,
-				41A7AA54EA53DF825409F9D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,8 +283,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				7AC0D0024CA49744A5487211 /* [CP] Embed Pods Frameworks */,
-				C4977DAB3426B1B4D48BDEF9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -349,36 +372,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		41A7AA54EA53DF825409F9D5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OC_Extend_Example/Pods-OC_Extend_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7AC0D0024CA49744A5487211 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OC_Extend_Tests/Pods-OC_Extend_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A8F5B5473A32E0912C166C7D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,21 +396,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OC_Extend_Example/Pods-OC_Extend_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C4977DAB3426B1B4D48BDEF9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OC_Extend_Tests/Pods-OC_Extend_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E426A0CDC09E7A1A1A4C8B5E /* [CP] Check Pods Manifest.lock */ = {
@@ -446,10 +424,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* OCAppDelegate.m in Sources */,
+				F203359B20C8D446001AC315 /* BaseLabel.m in Sources */,
 				F2E1069520C7DCD800278FF3 /* Person+Car.m in Sources */,
 				6003F5A7195388D20070C39A /* OCViewController.m in Sources */,
 				F2E1068D20C78EA100278FF3 /* Person.m in Sources */,
 				F2E1069220C78F4400278FF3 /* TestMethodSwizzling.m in Sources */,
+				F203359520C8D0E3001AC315 /* ZHJLabel.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

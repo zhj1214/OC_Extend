@@ -254,5 +254,80 @@
     NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]*1000];
     return timeSp;
 }
+
+#pragma mark: -- View上添加文字 绘制图层
++ (void)drawText:(UILabel*)laebl {
+    // 绘制文本的图层
+    CATextLayer *layerText = [[CATextLayer alloc] init];
+    // 背景颜色
+    layerText.backgroundColor = [UIColor clearColor].CGColor;
+    // 渲染分辨率-重要，否则显示模糊
+    layerText.contentsScale = [UIScreen mainScreen].scale;
+    // 分行显示
+    layerText.wrapped = YES;
+    // 超长显示时，省略号位置
+    layerText.truncationMode = kCATruncationNone;
+    // 字体颜色
+    layerText.foregroundColor = laebl.textColor.CGColor;
+    // 字体名称、大小
+    UIFont *font = laebl.font;
+    CFStringRef fontName = (__bridge CFStringRef)font.fontName;
+    CGFontRef fontRef =CGFontCreateWithFontName(fontName);
+    layerText.font = fontRef;
+    layerText.fontSize = font.pointSize;
+    CGFontRelease(fontRef);
+    // 显示位置
+    NSMutableDictionary *textAttributes = [[NSMutableDictionary alloc] init];
+    [textAttributes setValue:[UIFont systemFontOfSize:font.pointSize] forKey:NSFontAttributeName];
+    CGSize textSize = [laebl.text sizeWithAttributes:textAttributes];
+    CGRect frame = layerText.frame;
+    frame.size = textSize;
+    layerText.frame = frame;
+    // 字体对方方式 kCAAlignmentJustified
+    layerText.alignmentMode = kCAAlignmentCenter;
+    // 字符显示
+    // 方法1-简单显示
+    layerText.string = laebl.text;
+    
+    // 添加到父图书
+    [laebl.layer addSublayer:layerText];
+    
+    // 方法2-富文本显示
+    //    // 文本段落样式
+    //    NSMutableParagraphStyle *textStyle = [[NSMutableParagraphStyle alloc] init];
+    //    textStyle.lineBreakMode = NSLineBreakByWordWrapping; // 结尾部分的内容以……方式省略 ( "...wxyz" ,"abcd..." ,"ab...yz")
+    //    textStyle.alignment = NSTextAlignmentCenter; //（两端对齐的）文本对齐方式：（左，中，右，两端对齐，自然）
+    //    textStyle.lineSpacing = 5; // 字体的行间距
+    //    textStyle.firstLineHeadIndent = 5.0; // 首行缩进
+    //    textStyle.headIndent = 0.0; // 整体缩进(首行除外)
+    //    textStyle.tailIndent = 0.0; //
+    //    textStyle.minimumLineHeight = 20.0; // 最低行高
+    //    textStyle.maximumLineHeight = 20.0; // 最大行高
+    //    textStyle.paragraphSpacing = 15; // 段与段之间的间距
+    //    textStyle.paragraphSpacingBefore = 22.0f; // 段首行空白空间/* Distance between the bottom of the previous paragraph (or the end of its paragraphSpacing, if any) and the top of this paragraph. */
+    //    textStyle.baseWritingDirection = NSWritingDirectionLeftToRight; // 从左到右的书写方向（一共➡️三种）
+    //    textStyle.lineHeightMultiple = 15; /* Natural line height is multiplied by this factor (if positive) before being constrained by minimum and maximum line height. */
+    //    textStyle.hyphenationFactor = 1; //连字属性 在iOS，唯一支持的值分别为0和1
+    //    // 文本属性
+    //    NSMutableDictionary *textAttributes = [[NSMutableDictionary alloc] init];
+    //    // NSParagraphStyleAttributeName 段落样式
+    //    [textAttributes setValue:textStyle forKey:NSParagraphStyleAttributeName];
+    //    // NSFontAttributeName 字体名称和大小
+    //    [textAttributes setValue:[UIFont systemFontOfSize:12.0] forKey:NSFontAttributeName];
+    //    // NSForegroundColorAttributeNam 颜色
+    //    [textAttributes setValue:[UIColor greenColor] forKey:NSForegroundColorAttributeName];
+    //    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+    //    [attributedText setAttributes:textAttributes range:NSMakeRange(0, laebltext.text.length/2)];
+    //    layerText.string = attributedText;
+    
+    // 设置 源label的值
+    NSUInteger count = laebl.text.length;
+    laebl.text = @"";
+    for (int i =0; i<count; i++) {
+        laebl.text = [laebl.text stringByAppendingString:@"密"];
+    }
+    laebl.textColor = [UIColor clearColor];
+}
+
 @end
 

@@ -9,6 +9,7 @@
 #import "OCViewController.h"
 #import "OC_ExtendHeader.h"
 #import <GBDeviceInfo/GBDeviceInfo.h>
+#import "ZHJLabel.h"
 
 @interface OCViewController ()
 
@@ -16,20 +17,22 @@
 
 @implementation OCViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self getDeviceIPAddress];
-    
+
     [self testMethodSwizzling];
-    
-    
+
+    WS(weakSelf);
     [Tool delayStarFuntionGCD:3 block:^{
-        [self delayMethod];
+        [weakSelf delayMethod];
     }];
     
+    [Tool drawText:self.label];
+    NSLog(@" 看到的文字label 输出是%@",self.label.text);
 }
+
 #pragma mark: -- 获取设备信息
 -(NSString *)getDeviceIPAddress {
     //方法一：此方法获取具体的ip地址
