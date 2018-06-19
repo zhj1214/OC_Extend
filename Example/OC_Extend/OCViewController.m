@@ -7,9 +7,12 @@
 //
 
 #import "OCViewController.h"
-#import "OC_ExtendHeader.h"
 #import <GBDeviceInfo/GBDeviceInfo.h>
 #import "ZHJLabel.h"
+#import <AFNetworking/AFNetworking.h>
+
+// 使用model
+#import "WeatherInfoTestModel.h"
 
 @interface OCViewController ()
 
@@ -24,6 +27,8 @@
 
     [self testMethodSwizzling];
 
+    [self testNetWorkingModel];
+    
     WS(weakSelf);
     [Tool delayStarFuntionGCD:3 block:^{
         [weakSelf delayMethod];
@@ -53,7 +58,7 @@
     return ip.length > 0 ? ip : @"error";
 }
 
-#pragma mark: -- testMethodSwizzling
+#pragma mark: -- TestMethodSwizzling
 -(void)testMethodSwizzling {
     [TestMethodSwizzling getClassObjectName];
     
@@ -87,6 +92,16 @@
 #pragma mark: ----- 哈希
 -(NSString *)getSHA1String:(NSString*)content {
     return [Tool signWithSHA1:content];
+}
+
+#pragma mark: -- TestNetWorking
+-(void)testNetWorkingModel {
+    [[ZHJNetworkManager defaultManager] sendRequestMethod:HTTPMethodGET apiPath:@"http://www.weather.com.cn/data/sk/101010100.html" parameters:nil hud:YES cache:YES progress:nil success:^(BOOL isSuccess, id  _Nullable responseObject) {
+        WeatherInfoTestModel *weather = [WeatherInfoTestModel yy_modelWithJSON:responseObject[@"weatherinfo"]];
+        NSLog(@"成功__城市%@",weather.cityName);
+    } failure:^(NSString * _Nullable errorMessage) {
+        NSLog(@"失败");
+    }];
 }
 
 - (void)didReceiveMemoryWarning

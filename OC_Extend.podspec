@@ -20,12 +20,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   
   # s.framework  = "UIkit"
-  s.frameworks = "UIkit","Security", "CFNetwork",'Foundation','QuartzCore','MapKit','MobileCoreServices', 'CoreGraphics'
+  s.frameworks = "UIkit","Security", "CFNetwork",'CoreFoundation','Foundation','QuartzCore','MapKit','MobileCoreServices', 'CoreGraphics'
   s.libraries = 'iconv'
 
   s.dependency "AFNetworking", "~> 3.2.1"
   s.dependency "SAMKeychain", "~> 1.5.3"
   s.dependency "IQKeyboardManager","~> 6.0.3"
+  s.dependency "YYModel","~> 1.0.4"
+  s.dependency "YYCache","~> 1.0.4"
   # s.dependency "MyOftenUseTool"
 
   s.requires_arc = true

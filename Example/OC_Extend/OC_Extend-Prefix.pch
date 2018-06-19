@@ -13,6 +13,11 @@
 #ifdef __OBJC__
     @import UIKit;
     @import Foundation;
+    #import "YYModel.h"
+    #import <OC_Extend/OC_ExtendHeader.h>
+    #import <YYCache/YYCache.h>
+
 #endif
 
+//#import "OC_ExtendHeader.h"
 

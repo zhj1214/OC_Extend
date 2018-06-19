@@ -22,6 +22,7 @@
     "UIkit",
     "Security",
     "CFNetwork",
+    "CoreFoundation",
     "Foundation",
     "QuartzCore",
     "MapKit",
@@ -38,6 +39,12 @@
     ],
     "IQKeyboardManager": [
       "~> 6.0.3"
+    ],
+    "YYModel": [
+      "~> 1.0.4"
+    ],
+    "YYCache": [
+      "~> 1.0.4"
     ]
   },
   "requires_arc": true,

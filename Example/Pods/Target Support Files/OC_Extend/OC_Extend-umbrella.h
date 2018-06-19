@@ -33,6 +33,7 @@
 #import "NSString+RemoveEmoji.h"
 #import "NSString+Util.h"
 #import "NSString+UUID.h"
+#import "ZHJNetCacheManger.h"
 #import "ZHJNetworkManager.h"
 #import "UIButton+touch.h"
 #import "UIColor+HexValue.h"

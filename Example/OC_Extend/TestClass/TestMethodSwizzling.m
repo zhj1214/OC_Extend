@@ -10,6 +10,17 @@
 
 @implementation TestMethodSwizzling
 
+
+/**
+ 打印所有的注册 类
+
+ unsigned int outCount = 0;
+ Class *classes = objc_copyClassList(&outCount);
+ for (int i = 0; i < outCount; i++) {
+ NSLog(@"%s", class_getName(classes[i]));
+ }
+ free(classes);
+ */
 #pragma mark -- 获取指定类的类名 (char *类型字符串)
 +(void)getClassObjectName {
     //    cls: 类型

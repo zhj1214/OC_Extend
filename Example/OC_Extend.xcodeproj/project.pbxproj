@@ -26,6 +26,9 @@
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		F203359520C8D0E3001AC315 /* ZHJLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F203359320C8D0E3001AC315 /* ZHJLabel.m */; };
 		F203359B20C8D446001AC315 /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F203359A20C8D446001AC315 /* BaseLabel.m */; };
+		F249CDB020D3ADA700DAC89E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F249CDAF20D3ADA600DAC89E /* libsqlite3.tbd */; };
+		F249CDB220D3ADAF00DAC89E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F249CDB120D3ADAF00DAC89E /* libsqlite3.0.tbd */; };
+		F2C5184420D23DE80074F3AD /* WeatherInfoTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C5184320D23DE80074F3AD /* WeatherInfoTestModel.m */; };
 		F2E1068D20C78EA100278FF3 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E1068C20C78EA100278FF3 /* Person.m */; };
 		F2E1069220C78F4400278FF3 /* TestMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E1069120C78F4400278FF3 /* TestMethodSwizzling.m */; };
 		F2E1069520C7DCD800278FF3 /* Person+Car.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E1069420C7DCD800278FF3 /* Person+Car.m */; };
@@ -76,6 +79,10 @@
 		F203359420C8D0E3001AC315 /* ZHJLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHJLabel.h; sourceTree = "<group>"; };
 		F203359920C8D446001AC315 /* BaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLabel.h; sourceTree = "<group>"; };
 		F203359A20C8D446001AC315 /* BaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLabel.m; sourceTree = "<group>"; };
+		F249CDAF20D3ADA600DAC89E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F249CDB120D3ADAF00DAC89E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		F2C5184220D23DE80074F3AD /* WeatherInfoTestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherInfoTestModel.h; sourceTree = "<group>"; };
+		F2C5184320D23DE80074F3AD /* WeatherInfoTestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherInfoTestModel.m; sourceTree = "<group>"; };
 		F2E1068B20C78EA100278FF3 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		F2E1068C20C78EA100278FF3 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		F2E1069020C78F4400278FF3 /* TestMethodSwizzling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestMethodSwizzling.h; sourceTree = "<group>"; };
@@ -89,6 +96,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F249CDB220D3ADAF00DAC89E /* libsqlite3.0.tbd in Frameworks */,
+				F249CDB020D3ADA700DAC89E /* libsqlite3.tbd in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
@@ -134,6 +143,8 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F249CDB120D3ADAF00DAC89E /* libsqlite3.0.tbd */,
+				F249CDAF20D3ADA600DAC89E /* libsqlite3.tbd */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -233,9 +244,19 @@
 			path = UILabel;
 			sourceTree = "<group>";
 		};
+		F2C5184120D23DCC0074F3AD /* NetWorkTest */ = {
+			isa = PBXGroup;
+			children = (
+				F2C5184220D23DE80074F3AD /* WeatherInfoTestModel.h */,
+				F2C5184320D23DE80074F3AD /* WeatherInfoTestModel.m */,
+			);
+			path = NetWorkTest;
+			sourceTree = "<group>";
+		};
 		F2E1068A20C78EA100278FF3 /* TestModel */ = {
 			isa = PBXGroup;
 			children = (
+				F2C5184120D23DCC0074F3AD /* NetWorkTest */,
 				F2E1068B20C78EA100278FF3 /* Person.h */,
 				F2E1068C20C78EA100278FF3 /* Person.m */,
 				F2E1069320C7DCD800278FF3 /* Person+Car.h */,
@@ -384,6 +405,8 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/OC_Extend/OC_Extend.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -392,6 +415,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OC_Extend.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -430,6 +455,7 @@
 				F2E1068D20C78EA100278FF3 /* Person.m in Sources */,
 				F2E1069220C78F4400278FF3 /* TestMethodSwizzling.m in Sources */,
 				F203359520C8D0E3001AC315 /* ZHJLabel.m in Sources */,
+				F2C5184420D23DE80074F3AD /* WeatherInfoTestModel.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

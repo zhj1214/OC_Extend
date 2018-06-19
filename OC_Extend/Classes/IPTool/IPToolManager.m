@@ -124,7 +124,6 @@
 
 #pragma mark - 方法二
 -(NSString*)currentIPAdressDetailInfo{
-    
     InitAddresses();
     GetIPAddresses();
     GetHWAddresses();
@@ -143,8 +142,10 @@
         
         NSLog(@"Name: %s  MAC: %s  IP: %s\n", if_names[i], hw_addrs[i], ip_names[i]);
         NSString *deviceMAC = [NSString stringWithFormat:@"%s",if_names[i]];
-        if ([deviceMAC containsString:@"en"]) {
-            return [NSString stringWithFormat:@"%s",ip_names[i]];
+        if ([deviceMAC containsString:@"en"] || [deviceMAC containsString:@"pdp_ip0"]) {
+            NSString *ipAdress = [NSString stringWithFormat:@"%s",ip_names[i]];
+            NSLog(@"4G  %@",ipAdress);
+            return ipAdress;
         }
     }
     return @"";
