@@ -11,8 +11,9 @@
 #import "Tool.h"
 #import "MBManager.h"
 #import "ZHJNetCacheManger.h"
-
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
+
+//#import "CustomHTTPProtocol.h"
 
 @interface ZHJNetworkManager()
 
@@ -51,7 +52,10 @@ static AFHTTPSessionManager *_sessionManager;
     //        // 是否在证书域字段中验证域名
     //        securityPolicy.validatesDomainName = NO;
     
-    //        _sessionManager.securityPolicy = securityPolicy;
+//            _sessionManager.securityPolicy = securityPolicy;
+    
+//    NSURLSessionConfiguration *config = [CustomHTTPProtocol defaultSessionConfiguration];
+//    _sessionManager = [[AFHTTPSessionManager manager] initWithSessionConfiguration:config];
     
     _sessionManager = [AFHTTPSessionManager manager];
     _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];

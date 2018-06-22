@@ -257,6 +257,17 @@
 
 #pragma mark: -- View上添加文字 绘制图层
 + (void)drawText:(UILabel*)laebl {
+    NSString *text = laebl.text;
+    // 如果存在相同的 文字图层则不 添加
+    for (id layer  in laebl.layer.sublayers) {
+        if ([layer isKindOfClass:[CATextLayer class]]) {
+            CATextLayer *textLayer = layer;
+            if ([textLayer.string isEqualToString:text]) {
+                return;
+            }
+        }
+    }
+    
     // 绘制文本的图层
     CATextLayer *layerText = [[CATextLayer alloc] init];
     // 背景颜色
@@ -279,16 +290,17 @@
     // 显示位置
     NSMutableDictionary *textAttributes = [[NSMutableDictionary alloc] init];
     [textAttributes setValue:[UIFont systemFontOfSize:font.pointSize] forKey:NSFontAttributeName];
-    CGSize textSize = [laebl.text sizeWithAttributes:textAttributes];
+    CGSize textSize = [text sizeWithAttributes:textAttributes];
+    textSize = CGSizeMake(textSize.width + 3, textSize.height);
     CGRect frame = layerText.frame;
     frame.size = textSize;
     layerText.frame = frame;
+    
     // 字体对方方式 kCAAlignmentJustified
     layerText.alignmentMode = kCAAlignmentCenter;
     // 字符显示
     // 方法1-简单显示
-    layerText.string = laebl.text;
-    
+    layerText.string = text;
     // 添加到父图书
     [laebl.layer addSublayer:layerText];
     
@@ -321,11 +333,34 @@
     //    layerText.string = attributedText;
     
     // 设置 源label的值
-    NSUInteger count = laebl.text.length;
-    laebl.text = @"";
-    for (int i =0; i<count; i++) {
-        laebl.text = [laebl.text stringByAppendingString:@"密"];
+    NSMutableArray * shuffleArray = [NSMutableArray arrayWithCapacity:0];
+    // 遍历字符串，按字符来遍历。每个字符将通过block参数中的substring传出
+    [text enumerateSubstringsInRange:NSMakeRange(0, text.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+        [shuffleArray addObject:substring];
+    }];
+    // 判断有没有必要去混乱 顺序。小余4以下没必要混乱
+    if (shuffleArray.count<4) {
+        laebl.text = @"";
+        NSString *lastStr = [text substringFromIndex:text.length -1];
+        for (id _ in shuffleArray) {
+            laebl.text = [laebl.text stringByAppendingString:lastStr];
+        }
+        laebl.textColor = [UIColor clearColor];
+        return;
     }
+    // 开始 混乱顺序
+    for (int i =0; i < shuffleArray.count; i++) {
+        int n = (arc4random() % (shuffleArray.count - i)) + i;
+        [shuffleArray exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+    
+    laebl.text = @"";
+    text = @"";
+    for (NSString *str in shuffleArray) {
+        text = [text stringByAppendingString:str];
+    }
+    
+    laebl.text = text;
     laebl.textColor = [UIColor clearColor];
 }
 

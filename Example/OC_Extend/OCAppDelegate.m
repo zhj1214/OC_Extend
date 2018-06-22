@@ -7,11 +7,14 @@
 //
 
 #import "OCAppDelegate.h"
-//#import "OC_ExtendHeader.h"
+#import "CustomHTTPProtocol.h"
 #import <OC_Extend/OC_ExtendHeader.h>
+
 @implementation OCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // 请求拦截
+    [CustomHTTPProtocol registerInterceptor];
     // 定位
     [[ZhjLocation shareZHJLocation] beginUpdatingLocation];
     

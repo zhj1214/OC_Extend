@@ -28,6 +28,9 @@
 		F203359B20C8D446001AC315 /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F203359A20C8D446001AC315 /* BaseLabel.m */; };
 		F249CDB020D3ADA700DAC89E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F249CDAF20D3ADA600DAC89E /* libsqlite3.tbd */; };
 		F249CDB220D3ADAF00DAC89E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F249CDB120D3ADAF00DAC89E /* libsqlite3.0.tbd */; };
+		F2B6044D20DB91100093545C /* CustomHTTPProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B6044B20DB91100093545C /* CustomHTTPProtocol.m */; };
+		F2B6045120DB94250093545C /* XMNetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B6045020DB94240093545C /* XMNetWorkHelper.m */; };
+		F2B6045D20DCD2960093545C /* NSURLProtocol+WKWebVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B6045B20DCD2960093545C /* NSURLProtocol+WKWebVIew.m */; };
 		F2C5184420D23DE80074F3AD /* WeatherInfoTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C5184320D23DE80074F3AD /* WeatherInfoTestModel.m */; };
 		F2E1068D20C78EA100278FF3 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E1068C20C78EA100278FF3 /* Person.m */; };
 		F2E1069220C78F4400278FF3 /* TestMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E1069120C78F4400278FF3 /* TestMethodSwizzling.m */; };
@@ -81,6 +84,12 @@
 		F203359A20C8D446001AC315 /* BaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLabel.m; sourceTree = "<group>"; };
 		F249CDAF20D3ADA600DAC89E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F249CDB120D3ADAF00DAC89E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		F2B6044B20DB91100093545C /* CustomHTTPProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHTTPProtocol.m; sourceTree = "<group>"; };
+		F2B6044C20DB91100093545C /* CustomHTTPProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHTTPProtocol.h; sourceTree = "<group>"; };
+		F2B6044F20DB94240093545C /* XMNetWorkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNetWorkHelper.h; sourceTree = "<group>"; };
+		F2B6045020DB94240093545C /* XMNetWorkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMNetWorkHelper.m; sourceTree = "<group>"; };
+		F2B6045B20DCD2960093545C /* NSURLProtocol+WKWebVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLProtocol+WKWebVIew.m"; sourceTree = "<group>"; };
+		F2B6045C20DCD2960093545C /* NSURLProtocol+WKWebVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLProtocol+WKWebVIew.h"; sourceTree = "<group>"; };
 		F2C5184220D23DE80074F3AD /* WeatherInfoTestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherInfoTestModel.h; sourceTree = "<group>"; };
 		F2C5184320D23DE80074F3AD /* WeatherInfoTestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherInfoTestModel.m; sourceTree = "<group>"; };
 		F2E1068B20C78EA100278FF3 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -228,6 +237,8 @@
 		F203359120C8D0E3001AC315 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F2B6044E20DB94240093545C /* NetWorking */,
+				F2B6044A20DB91100093545C /* CustomURLProtocol */,
 				F203359220C8D0E3001AC315 /* UILabel */,
 			);
 			path = Common;
@@ -242,6 +253,34 @@
 				F203359420C8D0E3001AC315 /* ZHJLabel.h */,
 			);
 			path = UILabel;
+			sourceTree = "<group>";
+		};
+		F2B6044A20DB91100093545C /* CustomURLProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				F2B6045A20DCD2960093545C /* WKObserve */,
+				F2B6044C20DB91100093545C /* CustomHTTPProtocol.h */,
+				F2B6044B20DB91100093545C /* CustomHTTPProtocol.m */,
+			);
+			path = CustomURLProtocol;
+			sourceTree = "<group>";
+		};
+		F2B6044E20DB94240093545C /* NetWorking */ = {
+			isa = PBXGroup;
+			children = (
+				F2B6044F20DB94240093545C /* XMNetWorkHelper.h */,
+				F2B6045020DB94240093545C /* XMNetWorkHelper.m */,
+			);
+			path = NetWorking;
+			sourceTree = "<group>";
+		};
+		F2B6045A20DCD2960093545C /* WKObserve */ = {
+			isa = PBXGroup;
+			children = (
+				F2B6045B20DCD2960093545C /* NSURLProtocol+WKWebVIew.m */,
+				F2B6045C20DCD2960093545C /* NSURLProtocol+WKWebVIew.h */,
+			);
+			path = WKObserve;
 			sourceTree = "<group>";
 		};
 		F2C5184120D23DCC0074F3AD /* NetWorkTest */ = {
@@ -452,8 +491,11 @@
 				F203359B20C8D446001AC315 /* BaseLabel.m in Sources */,
 				F2E1069520C7DCD800278FF3 /* Person+Car.m in Sources */,
 				6003F5A7195388D20070C39A /* OCViewController.m in Sources */,
+				F2B6045D20DCD2960093545C /* NSURLProtocol+WKWebVIew.m in Sources */,
 				F2E1068D20C78EA100278FF3 /* Person.m in Sources */,
+				F2B6045120DB94250093545C /* XMNetWorkHelper.m in Sources */,
 				F2E1069220C78F4400278FF3 /* TestMethodSwizzling.m in Sources */,
+				F2B6044D20DB91100093545C /* CustomHTTPProtocol.m in Sources */,
 				F203359520C8D0E3001AC315 /* ZHJLabel.m in Sources */,
 				F2C5184420D23DE80074F3AD /* WeatherInfoTestModel.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

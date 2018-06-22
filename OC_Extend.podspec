@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OC_Extend'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = '在这里你将看到 iOS Objective-C 的组件扩展'
 
   s.description      = <<-DESC
@@ -62,9 +62,18 @@ Pod::Spec.new do |s|
     ss.public_header_files = 'OC_Extend/Classes/CheckText/*.h'
   end
 
+  s.subspec 'MBProgressHUD' do |ss|
+    ss.source_files = 'OC_Extend/Classes/MBProgressHUD/*.{h,m}'
+    ss.public_header_files = 'OC_Extend/Classes/MBProgressHUD/*.h'
+  end
+
   s.subspec 'NetworkManager' do |ss|
     ss.dependency 'OC_Extend/APPSeting'
     ss.ios.dependency 'OC_Extend/APPSeting'
+
+    ss.dependency 'OC_Extend/MBProgressHUD'
+    ss.ios.dependency 'OC_Extend/MBProgressHUD'
+    
 
     ss.source_files = 'OC_Extend/Classes/NetworkManager/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/NetworkManager/*.h'
@@ -84,6 +93,7 @@ Pod::Spec.new do |s|
   s.subspec 'APPLocation' do |ss|
     ss.dependency 'OC_Extend/UIExtension'
     ss.ios.dependency 'OC_Extend/UIExtension'
+
     ss.source_files = 'OC_Extend/Classes/APPLocation/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/APPLocation/*.h'
     # ss.watchos.frameworks = 'MobileCoreServices', 'CoreGraphics'
@@ -103,10 +113,5 @@ Pod::Spec.new do |s|
 
     ss.source_files = 'OC_Extend/Classes/ZHJAlertViewController/**/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/ZHJAlertViewController/**/*.h'
-  end
-
-  s.subspec 'MBProgressHUD' do |ss|
-    ss.source_files = 'OC_Extend/Classes/MBProgressHUD/*.{h,m}'
-    ss.public_header_files = 'OC_Extend/Classes/MBProgressHUD/*.h'
   end
 end

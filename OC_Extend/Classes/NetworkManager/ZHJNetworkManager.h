@@ -10,15 +10,6 @@
 
 #define WS(weakSelf) __weak __typeof(&*self)weakSelf = self;
 
-///**请求成功的回调 */
-//typedef void(^RequestSuccessBlock)(id responseObject);
-//
-///**请求失败的回调 */
-//typedef void(^RequestFailBlock)(NSString *errorStr);
-
-/** 缓存的Block */
-//typedef void(^RequestCache)(id responseCache);
-
 /**上传文件成功之后的回调 */
 typedef void(^UploadMyFileSuccess)(id dataResource);
 

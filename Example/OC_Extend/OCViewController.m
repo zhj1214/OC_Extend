@@ -10,9 +10,10 @@
 #import <GBDeviceInfo/GBDeviceInfo.h>
 #import "ZHJLabel.h"
 #import <AFNetworking/AFNetworking.h>
-
 // 使用model
 #import "WeatherInfoTestModel.h"
+// 自己封装的请求
+#import "XMNetWorkHelper.h"
 
 @interface OCViewController ()
 
@@ -27,11 +28,12 @@
 
     [self testMethodSwizzling];
 
-    [self testNetWorkingModel];
     
+    [self initAccountFuntion];
     WS(weakSelf);
     [Tool delayStarFuntionGCD:3 block:^{
         [weakSelf delayMethod];
+        [weakSelf testNetWorkingModel];
     }];
     
     [Tool drawText:self.label];
@@ -96,7 +98,7 @@
 
 #pragma mark: -- TestNetWorking
 -(void)testNetWorkingModel {
-    [[ZHJNetworkManager defaultManager] sendRequestMethod:HTTPMethodGET apiPath:@"http://www.weather.com.cn/data/sk/101010100.html" parameters:nil hud:YES cache:YES progress:nil success:^(BOOL isSuccess, id  _Nullable responseObject) {
+    [[ZHJNetworkManager defaultManager] sendRequestMethod:HTTPMethodGET apiPath:@"http://www.weather.com.cn/data/sk/101010100.html" parameters:nil hud:YES cache:NO progress:nil success:^(BOOL isSuccess, id  _Nullable responseObject) {
         WeatherInfoTestModel *weather = [WeatherInfoTestModel yy_modelWithJSON:responseObject[@"weatherinfo"]];
         NSLog(@"成功__城市%@",weather.cityName);
     } failure:^(NSString * _Nullable errorMessage) {
@@ -104,6 +106,22 @@
     }];
 }
 
+-(void)initAccountFuntion {
+    
+    NSDictionary *dictemp = @{@"sdkIP":@"ssdsadweasdasdsc_test",@"applicationID":@"dsgfslkcnah37teiw_test",@"sdkType":@"iOS",@"appID":@"0f89cfb8_8bb9_4017_b54d_5e7c32f28a42",@"sdkVersion":@"SDK1.0.0",@"sdkOsVersion":@"znxcnahsda_test",@"sdkDesc":@"鑫云+外联开放平台",@"sdkImei":@"dkasndasdmdas_test"};
+    NSString *data_Str = [Tool convertToJsonData:dictemp];
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:data_Str forKey:@"data"];
+    
+    WS(weakSelf);
+    [XMNetWorkHelper postWithUrlString:@"/getAuthPlantSignData" parameters:dic success:^(NSDictionary *data) {
+        NSLog(@"成功  %@",data);
+//        [weakSelf gettoken:data_Str singData:[data objectForKey:@"signData"] SignCert:[data objectForKey:@"signCert"]];
+    } failure:^(NSError *error) {
+        NSLog(@"失败 %@",error);
+    }];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
