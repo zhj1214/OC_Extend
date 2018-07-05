@@ -3,10 +3,23 @@ use_frameworks!
 
 target 'OC_Extend_Example' do
   pod 'OC_Extend', :path => '../'
-# pod 'OC_Extend'
-  pod 'GBDeviceInfo'
-  pod 'YYCache', '~> 1.0.4'
   
+# pod 'OC_Extend'
+
+# 获取设备型号
+  pod 'GBDeviceInfo'
+#  缓存
+  pod 'YYCache', '~> 1.0.4'
+#  hock 封装
+  pod 'Aspects'
+#  轮播
+#  SDCycleScrollView
+# 全屏pop手势
+pod 'FDFullscreenPopGesture'
+# cell侧滑按钮
+pod 'MGSwipeTableCell'
+# 自动折叠视图
+#pod search UIView+FDCollapsibleConstraints
   target 'OC_Extend_Tests' do
     inherit! :search_paths
 

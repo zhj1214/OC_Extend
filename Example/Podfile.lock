@@ -14,85 +14,89 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
+  - FDFullscreenPopGesture (1.1)
   - GBDeviceInfo (5.2.0):
     - GBDeviceInfo/Core (= 5.2.0)
   - GBDeviceInfo/Core (5.2.0)
   - IQKeyboardManager (6.0.4)
-  - OC_Extend (0.1.3):
+  - MGSwipeTableCell (1.6.7)
+  - OC_Extend (0.1.4):
     - AFNetworking (~> 3.2.1)
     - IQKeyboardManager (~> 6.0.3)
-    - OC_Extend/APPLocation (= 0.1.3)
-    - OC_Extend/APPSeting (= 0.1.3)
-    - OC_Extend/CheckText (= 0.1.3)
-    - OC_Extend/CommonSecretData (= 0.1.3)
-    - OC_Extend/IPTool (= 0.1.3)
-    - OC_Extend/MBProgressHUD (= 0.1.3)
-    - OC_Extend/NetworkManager (= 0.1.3)
-    - OC_Extend/NSExtension (= 0.1.3)
-    - OC_Extend/UIExtension (= 0.1.3)
-    - OC_Extend/ZHJAlertViewController (= 0.1.3)
+    - OC_Extend/APPLocation (= 0.1.4)
+    - OC_Extend/APPSeting (= 0.1.4)
+    - OC_Extend/CheckText (= 0.1.4)
+    - OC_Extend/CommonSecretData (= 0.1.4)
+    - OC_Extend/IPTool (= 0.1.4)
+    - OC_Extend/MBProgressHUD (= 0.1.4)
+    - OC_Extend/NetworkManager (= 0.1.4)
+    - OC_Extend/NSExtension (= 0.1.4)
+    - OC_Extend/UIExtension (= 0.1.4)
+    - OC_Extend/ZHJAlertViewController (= 0.1.4)
     - SAMKeychain (~> 1.5.3)
     - YYCache (~> 1.0.4)
     - YYModel (~> 1.0.4)
-  - OC_Extend/APPLocation (0.1.3):
+  - OC_Extend/APPLocation (0.1.4):
     - AFNetworking (~> 3.2.1)
     - IQKeyboardManager (~> 6.0.3)
     - OC_Extend/UIExtension
     - SAMKeychain (~> 1.5.3)
     - YYCache (~> 1.0.4)
     - YYModel (~> 1.0.4)
-  - OC_Extend/APPSeting (0.1.3):
+  - OC_Extend/APPSeting (0.1.4):
     - AFNetworking (~> 3.2.1)
     - IQKeyboardManager (~> 6.0.3)
     - OC_Extend/IPTool
     - SAMKeychain (~> 1.5.3)
     - YYCache (~> 1.0.4)
     - YYModel (~> 1.0.4)
-  - OC_Extend/CheckText (0.1.3):
+  - OC_Extend/CheckText (0.1.4):
     - AFNetworking (~> 3.2.1)
     - IQKeyboardManager (~> 6.0.3)
     - OC_Extend/APPSeting
     - SAMKeychain (~> 1.5.3)
     - YYCache (~> 1.0.4)
     - YYModel (~> 1.0.4)
-  - OC_Extend/CommonSecretData (0.1.3):
+  - OC_Extend/CommonSecretData (0.1.4):
     - AFNetworking (~> 3.2.1)
     - IQKeyboardManager (~> 6.0.3)
     - SAMKeychain (~> 1.5.3)
     - YYCache (~> 1.0.4)
     - YYModel (~> 1.0.4)
-  - OC_Extend/IPTool (0.1.3):
+  - OC_Extend/IPTool (0.1.4):
     - AFNetworking (~> 3.2.1)
     - IQKeyboardManager (~> 6.0.3)
     - SAMKeychain (~> 1.5.3)
     - YYCache (~> 1.0.4)
     - YYModel (~> 1.0.4)
-  - OC_Extend/MBProgressHUD (0.1.3):
+  - OC_Extend/MBProgressHUD (0.1.4):
     - AFNetworking (~> 3.2.1)
     - IQKeyboardManager (~> 6.0.3)
     - SAMKeychain (~> 1.5.3)
     - YYCache (~> 1.0.4)
     - YYModel (~> 1.0.4)
-  - OC_Extend/NetworkManager (0.1.3):
+  - OC_Extend/NetworkManager (0.1.4):
     - AFNetworking (~> 3.2.1)
     - IQKeyboardManager (~> 6.0.3)
     - OC_Extend/APPSeting
+    - OC_Extend/MBProgressHUD
     - SAMKeychain (~> 1.5.3)
     - YYCache (~> 1.0.4)
     - YYModel (~> 1.0.4)
-  - OC_Extend/NSExtension (0.1.3):
+  - OC_Extend/NSExtension (0.1.4):
     - AFNetworking (~> 3.2.1)
     - IQKeyboardManager (~> 6.0.3)
     - SAMKeychain (~> 1.5.3)
     - YYCache (~> 1.0.4)
     - YYModel (~> 1.0.4)
-  - OC_Extend/UIExtension (0.1.3):
+  - OC_Extend/UIExtension (0.1.4):
     - AFNetworking (~> 3.2.1)
     - IQKeyboardManager (~> 6.0.3)
     - SAMKeychain (~> 1.5.3)
     - YYCache (~> 1.0.4)
     - YYModel (~> 1.0.4)
-  - OC_Extend/ZHJAlertViewController (0.1.3):
+  - OC_Extend/ZHJAlertViewController (0.1.4):
     - AFNetworking (~> 3.2.1)
     - IQKeyboardManager (~> 6.0.3)
     - OC_Extend/UIExtension
@@ -104,15 +108,21 @@ PODS:
   - YYModel (1.0.4)
 
 DEPENDENCIES:
+  - Aspects
+  - FDFullscreenPopGesture
   - GBDeviceInfo
+  - MGSwipeTableCell
   - OC_Extend (from `../`)
   - YYCache (~> 1.0.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - Aspects
+    - FDFullscreenPopGesture
     - GBDeviceInfo
     - IQKeyboardManager
+    - MGSwipeTableCell
     - SAMKeychain
     - YYCache
     - YYModel
@@ -123,13 +133,16 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   GBDeviceInfo: 2c65ceb9404f9079264d4c238f5b81916fdfc5e2
   IQKeyboardManager: 29514134ef0334a6fa33cf4eee11c36c064baeaf
-  OC_Extend: 7e8a0e333b13e80bf3064e559b0fa3d98e56fc0e
+  MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
+  OC_Extend: 629f8e23ed98ee02eb10f1323b6eae4ca7cfe7eb
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: b40fc0f5cfe41086b60228121d10f57ba5797233
+PODFILE CHECKSUM: 10db4ab178da377ade38e6ffa27160b86e3279dc
 
 COCOAPODS: 1.5.3

@@ -15,10 +15,13 @@
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)sel {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     if (sel == @selector(zhj)) {
         class_addMethod([self class], sel, class_getMethodImplementation(self, @selector(startEngine:)), "s@:@");
         return YES;
     }
+#pragma clang diagnostic pop
     return [super resolveInstanceMethod:sel];
 }
 

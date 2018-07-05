@@ -28,6 +28,7 @@
 		F203359B20C8D446001AC315 /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F203359A20C8D446001AC315 /* BaseLabel.m */; };
 		F249CDB020D3ADA700DAC89E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F249CDAF20D3ADA600DAC89E /* libsqlite3.tbd */; };
 		F249CDB220D3ADAF00DAC89E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F249CDB120D3ADAF00DAC89E /* libsqlite3.0.tbd */; };
+		F2780D1520E60FDD00B94797 /* TestNSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = F2780D1420E60FDD00B94797 /* TestNSURLSessionTask.m */; };
 		F2B6044D20DB91100093545C /* CustomHTTPProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B6044B20DB91100093545C /* CustomHTTPProtocol.m */; };
 		F2B6045120DB94250093545C /* XMNetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B6045020DB94240093545C /* XMNetWorkHelper.m */; };
 		F2B6045D20DCD2960093545C /* NSURLProtocol+WKWebVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B6045B20DCD2960093545C /* NSURLProtocol+WKWebVIew.m */; };
@@ -84,6 +85,8 @@
 		F203359A20C8D446001AC315 /* BaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLabel.m; sourceTree = "<group>"; };
 		F249CDAF20D3ADA600DAC89E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F249CDB120D3ADAF00DAC89E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		F2780D1320E60FDD00B94797 /* TestNSURLSessionTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestNSURLSessionTask.h; sourceTree = "<group>"; };
+		F2780D1420E60FDD00B94797 /* TestNSURLSessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestNSURLSessionTask.m; sourceTree = "<group>"; };
 		F2B6044B20DB91100093545C /* CustomHTTPProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHTTPProtocol.m; sourceTree = "<group>"; };
 		F2B6044C20DB91100093545C /* CustomHTTPProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHTTPProtocol.h; sourceTree = "<group>"; };
 		F2B6044F20DB94240093545C /* XMNetWorkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMNetWorkHelper.h; sourceTree = "<group>"; };
@@ -167,6 +170,7 @@
 		6003F593195388D20070C39A /* Example for OC_Extend */ = {
 			isa = PBXGroup;
 			children = (
+				F2780D1220E60E2800B94797 /* CustomVC */,
 				F203359120C8D0E3001AC315 /* Common */,
 				F2E1068F20C78F2400278FF3 /* TestClass */,
 				F2E1068A20C78EA100278FF3 /* TestModel */,
@@ -253,6 +257,15 @@
 				F203359420C8D0E3001AC315 /* ZHJLabel.h */,
 			);
 			path = UILabel;
+			sourceTree = "<group>";
+		};
+		F2780D1220E60E2800B94797 /* CustomVC */ = {
+			isa = PBXGroup;
+			children = (
+				F2780D1320E60FDD00B94797 /* TestNSURLSessionTask.h */,
+				F2780D1420E60FDD00B94797 /* TestNSURLSessionTask.m */,
+			);
+			path = CustomVC;
 			sourceTree = "<group>";
 		};
 		F2B6044A20DB91100093545C /* CustomURLProtocol */ = {
@@ -440,8 +453,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OC_Extend_Example/Pods-OC_Extend_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework",
+				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/GBDeviceInfo/GBDeviceInfo.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/OC_Extend/OC_Extend.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
@@ -450,8 +466,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GBDeviceInfo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OC_Extend.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
@@ -490,6 +509,7 @@
 				6003F59E195388D20070C39A /* OCAppDelegate.m in Sources */,
 				F203359B20C8D446001AC315 /* BaseLabel.m in Sources */,
 				F2E1069520C7DCD800278FF3 /* Person+Car.m in Sources */,
+				F2780D1520E60FDD00B94797 /* TestNSURLSessionTask.m in Sources */,
 				6003F5A7195388D20070C39A /* OCViewController.m in Sources */,
 				F2B6045D20DCD2960093545C /* NSURLProtocol+WKWebVIew.m in Sources */,
 				F2E1068D20C78EA100278FF3 /* Person.m in Sources */,

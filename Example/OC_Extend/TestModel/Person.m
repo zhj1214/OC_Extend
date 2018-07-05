@@ -33,8 +33,12 @@
 }
 
 +(void)dynamicAddMethod {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     Person *c = [[Person alloc] init];
     [c performSelector:@selector(zhj) withObject:@"你好啊，你真帅"];
+#pragma clang diagnostic pop
+    
 }
 
 @end

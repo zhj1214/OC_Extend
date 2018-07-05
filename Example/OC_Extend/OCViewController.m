@@ -15,7 +15,14 @@
 // 自己封装的请求
 #import "XMNetWorkHelper.h"
 
+//hock
+#import <Aspects/Aspects.h>
+//
+#import "TestNSURLSessionTask.h"
+
 @interface OCViewController ()
+
+@property(nonatomic,strong) NSMutableArray *dataArray;
 
 @end
 
@@ -23,21 +30,172 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 
+
+    
+//#ifdef __IPHone_11_0
+    
+//#endif
+    
     [self getDeviceIPAddress];
+    
+    [self initData];
+}
+#pragma mark -- 初始化数据源
+-(void)initData {
+    self.table.rowHeight = UITableViewAutomaticDimension;
+    
+    NSMutableArray *array = [NSMutableArray array];
+    [array addObject:@"label 绘制文字图层"];
+    [array addObject:@"runtime 练习"];
+    [array addObject:@"AFN请求网络"];
+    [array addObject:@"custom网络类 请求"];
+    [array addObject:@"网络监听"];
+    [self.dataArray addObject:array];
+    [self.dataArray addObject:@[@"测试NSURLSessionTask使用"]];
+}
 
-    [self testMethodSwizzling];
+#pragma mark -- UITableViewDelegate,UITableViewDataSource
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.dataArray.count;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray *array = self.dataArray[section];
+    return array.count;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 44)];
+    view.backgroundColor = [UIColor grayColor];
+    
+    UILabel *label = [UILabel new];
+    label.text = [NSString stringWithFormat:@"第%ld区",(long)section];
+    label.center = view.center;
+    label.bounds = CGRectMake(0, 0, 100, 35);
+    label.textColor = [UIColor redColor];
+    [view addSubview:label];
+    
+    return view;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 44;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *array = self.dataArray[indexPath.section];
+    static NSString *indentifier = @"cells";
+    MGSwipeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
+    if (!cell) {
+        cell = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:indentifier];
+    }
+    
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        cell.detailTextLabel.text = @"你好啊小军";
+    } else {
+        cell.detailTextLabel.text = array[indexPath.row];
+    }
+    
+    cell.delegate = self;
+    cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"left" backgroundColor:[UIColor redColor]]];
+    
+    cell.leftSwipeSettings.transition = MGSwipeTransition3D;
+ 
+    
+    //configure right buttons
+    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:[UIColor redColor]],
+                          [MGSwipeButton buttonWithTitle:@"More" backgroundColor:[UIColor lightGrayColor]]];
+    cell.rightSwipeSettings.transition = MGSwipeTransition3D;
 
     
-    [self initAccountFuntion];
-    WS(weakSelf);
-    [Tool delayStarFuntionGCD:3 block:^{
-        [weakSelf delayMethod];
-        [weakSelf testNetWorkingModel];
-    }];
+    return cell;
+}
+
+//- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+//        [self.arrayTest removeObjectAtIndex:indexPath.row];
+//        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    }];
+//    UITableViewRowAction *topRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"置顶" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+//        [self.arrayTest exchangeObjectAtIndex:indexPath.row withObjectAtIndex:0];
+//        NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
+//        [tableView moveRowAtIndexPath:indexPath toIndexPath:firstIndexPath];
+//    }];
+//    topRowAction.backgroundColor = [UIColor blueColor];
+//    UITableViewRowAction *moreRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"更多" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+//        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+//    }];
+//    return @[deleteRowAction,topRowAction,moreRowAction];
+//}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = (UITableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    switch (indexPath.section) {
+        case 0:
+            switch (indexPath.row) {
+                case 0:{
+                    [Tool drawText:cell.textLabel];
+                    [ZHJAlertViewController alertShowTitle:@"welcome browse" message:[NSString stringWithFormat:@"实际label的文字是：%@",cell.textLabel.text] cancelButtonTitle:@"承认" otherButtonTitles:@"对" block:^(NSInteger buttonIndex) {
+                        if (buttonIndex == 0) {
+                            NSLog(@"有意思");
+                        } else {
+                            NSLog(@"你好");
+                        }
+                    }];
+                }
+                    break;
+                case 1:
+                    [self testMethodSwizzling];
+                    break;
+                case 2:
+                    [self testNetWorkingModel];
+                    break;
+                case 3:
+                    [self initAccountFuntion];
+                    break;
+                case 4:
+                    [self networkingMonitoring];
+                    break;
+            }
+            break;
+        case 1:{
+            UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            TestNSURLSessionTask *VC = [board instantiateViewControllerWithIdentifier:@"SessionTask"];
+            [self.navigationController pushViewController:VC animated:YES];
+        }
+            break;
+            
+        default:
+            NSLog(@"还有这情况啊");
+            break;
+    }
+}
+
+
+#pragma mark -- 网络监听
+-(void)networkingMonitoring {
+    // 请求拦截
+    //    [CustomHTTPProtocol registerInterceptor];
     
-    [Tool drawText:self.label];
-    NSLog(@" 看到的文字label 输出是%@",self.label.text);
+    NSError *error = nil;
+    [NSURLSession aspect_hookSelector:@selector(dataTaskWithRequest:completionHandler:) withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info){
+        for (id obj in info.arguments) {
+            if ([obj isKindOfClass:[NSURLRequest class]]) {
+                NSURLRequest *request = (NSURLRequest*)obj;
+                if (request.URL) {
+                    NSString *body = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
+                    NSLog(@"链接是 ————%@___请求内容__%@",request.URL.absoluteString,body);
+                }
+            }
+        }
+    } error:&error];
+    if (error) {
+        NSLog(@"_hock 失败______%@",error);
+    } else {
+        [self testNetWorkingModel];
+    }
 }
 
 #pragma mark: -- 获取设备信息
@@ -107,25 +265,41 @@
 }
 
 -(void)initAccountFuntion {
-    
     NSDictionary *dictemp = @{@"sdkIP":@"ssdsadweasdasdsc_test",@"applicationID":@"dsgfslkcnah37teiw_test",@"sdkType":@"iOS",@"appID":@"0f89cfb8_8bb9_4017_b54d_5e7c32f28a42",@"sdkVersion":@"SDK1.0.0",@"sdkOsVersion":@"znxcnahsda_test",@"sdkDesc":@"鑫云+外联开放平台",@"sdkImei":@"dkasndasdmdas_test"};
     NSString *data_Str = [Tool convertToJsonData:dictemp];
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:data_Str forKey:@"data"];
     
-    WS(weakSelf);
     [XMNetWorkHelper postWithUrlString:@"/getAuthPlantSignData" parameters:dic success:^(NSDictionary *data) {
         NSLog(@"成功  %@",data);
-//        [weakSelf gettoken:data_Str singData:[data objectForKey:@"signData"] SignCert:[data objectForKey:@"signCert"]];
     } failure:^(NSError *error) {
         NSLog(@"失败 %@",error);
     }];
 }
-- (void)didReceiveMemoryWarning
-{
+
+#pragma mark: -- private
+-(NSMutableArray*)dataArray {
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL) swipeTableCell:(nonnull MGSwipeTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion {
+    if (direction == MGSwipeDirectionLeftToRight) {
+        
+        NSLog(@"左边 index:%ld  fromExpansion ",(long)index);
+    } else {
+            NSLog(@"右边 index:%ld  fromExpansion",(long)index);
+    }
+    
+    return YES;
+}
 @end
+

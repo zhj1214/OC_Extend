@@ -8,8 +8,11 @@
 
 @import UIKit;
 #import "TestMethodSwizzling.h"
+#import <MGSwipeTableCell/MGSwipeTableCell.h>
+//#import <MGSwipeTableCell/MGSwipeButton.h>
 
-@interface OCViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@interface OCViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,MGSwipeTableCellDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *table;
 
 @end
