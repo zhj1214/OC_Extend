@@ -45,6 +45,9 @@
     ],
     "YYCache": [
       "~> 1.0.4"
+    ],
+    "ZipArchive": [
+      "~> 1.4.0"
     ]
   },
   "requires_arc": true,
@@ -91,6 +94,11 @@
       "public_header_files": "OC_Extend/Classes/CheckText/*.h"
     },
     {
+      "name": "ZHJCacheManger",
+      "source_files": "OC_Extend/Classes/ZHJCacheManger/ZHJCacheManger.{h,m}",
+      "public_header_files": "OC_Extend/Classes/ZHJCacheManger/ZHJCacheManger.h"
+    },
+    {
       "name": "MBProgressHUD",
       "source_files": "OC_Extend/Classes/MBProgressHUD/*.{h,m}",
       "public_header_files": "OC_Extend/Classes/MBProgressHUD/*.h"
@@ -103,6 +111,9 @@
         ],
         "OC_Extend/MBProgressHUD": [
 
+        ],
+        "OC_Extend/ZHJCacheManger": [
+
         ]
       },
       "ios": {
@@ -112,11 +123,14 @@
           ],
           "OC_Extend/MBProgressHUD": [
 
+          ],
+          "OC_Extend/ZHJCacheManger": [
+
           ]
         }
       },
-      "source_files": "OC_Extend/Classes/NetworkManager/*.{h,m}",
-      "public_header_files": "OC_Extend/Classes/NetworkManager/*.h"
+      "source_files": "OC_Extend/Classes/NetworkManager/**/*.{h,m,c,mm}",
+      "public_header_files": "OC_Extend/Classes/NetworkManager/**/*.{h.c}"
     },
     {
       "name": "CommonSecretData",

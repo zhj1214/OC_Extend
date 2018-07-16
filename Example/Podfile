@@ -3,7 +3,7 @@ use_frameworks!
 
 target 'OC_Extend_Example' do
   pod 'OC_Extend', :path => '../'
-  
+
 # pod 'OC_Extend'
 
 # 获取设备型号
@@ -20,6 +20,8 @@ pod 'FDFullscreenPopGesture'
 pod 'MGSwipeTableCell'
 # 自动折叠视图
 #pod search UIView+FDCollapsibleConstraints
+# 防止崩溃
+pod 'AvoidCrash', '~> 2.5.2'
   target 'OC_Extend_Tests' do
     inherit! :search_paths
 

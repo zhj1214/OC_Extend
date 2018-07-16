@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
   s.dependency "IQKeyboardManager","~> 6.0.3"
   s.dependency "YYModel","~> 1.0.4"
   s.dependency "YYCache","~> 1.0.4"
+  s.dependency 'ZipArchive', '~> 1.4.0'
   # s.dependency "MyOftenUseTool"
 
   s.requires_arc = true
@@ -38,12 +39,12 @@ Pod::Spec.new do |s|
   # => 创建个人目录  
   s.source_files = 'OC_Extend/Classes/OC_ExtendHeader.h'
   s.public_header_files = 'OC_Extend/Classes/OC_ExtendHeader.h'
-
+# APP 工具类
   s.subspec 'IPTool' do |ss|
     ss.source_files = 'OC_Extend/Classes/IPTool/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/IPTool/*.h'
   end
-
+# APP 配置类
   s.subspec 'APPSeting' do |ss|
     # ss.ios.deployment_target = '8.0'
     ss.dependency 'OC_Extend/IPTool'
@@ -52,7 +53,7 @@ Pod::Spec.new do |s|
     ss.source_files = 'OC_Extend/Classes/APPSeting/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/APPSeting/*.h'
   end
-
+# APP校验类
   s.subspec 'CheckText' do |ss|
     ss.dependency 'OC_Extend/APPSeting'
     ss.ios.dependency 'OC_Extend/APPSeting'
@@ -61,35 +62,42 @@ Pod::Spec.new do |s|
     ss.source_files = 'OC_Extend/Classes/CheckText/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/CheckText/*.h'
   end
-
+  # 缓存封装
+  s.subspec 'ZHJCacheManger' do |ss|
+      ss.source_files = 'OC_Extend/Classes/ZHJCacheManger/ZHJCacheManger.{h,m}'
+      ss.public_header_files = 'OC_Extend/Classes/ZHJCacheManger/ZHJCacheManger.h'
+  end
+# 提示框封装
   s.subspec 'MBProgressHUD' do |ss|
     ss.source_files = 'OC_Extend/Classes/MBProgressHUD/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/MBProgressHUD/*.h'
   end
-
+# 网络封装
   s.subspec 'NetworkManager' do |ss|
     ss.dependency 'OC_Extend/APPSeting'
     ss.ios.dependency 'OC_Extend/APPSeting'
 
     ss.dependency 'OC_Extend/MBProgressHUD'
     ss.ios.dependency 'OC_Extend/MBProgressHUD'
+
+    ss.dependency 'OC_Extend/ZHJCacheManger'
+    ss.ios.dependency 'OC_Extend/ZHJCacheManger'
     
-
-    ss.source_files = 'OC_Extend/Classes/NetworkManager/*.{h,m}'
-    ss.public_header_files = 'OC_Extend/Classes/NetworkManager/*.h'
+    ss.source_files = 'OC_Extend/Classes/NetworkManager/**/*.{h,m,c,mm}'
+    ss.public_header_files = 'OC_Extend/Classes/NetworkManager/**/*.{h.c}'
   end
-
+# 加密封装
   s.subspec 'CommonSecretData' do |ss|
     ss.source_files = 'OC_Extend/Classes/CommonSecretData/**/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/CommonSecretData/**/*.h'
   end
-
+# UI类扩展
   s.subspec 'UIExtension' do |ss|
     ss.ios.deployment_target = '8.0'
     ss.source_files = 'OC_Extend/Classes/UIExtension/**/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/UIExtension/**/*.h'
   end
-
+# 定位
   s.subspec 'APPLocation' do |ss|
     ss.dependency 'OC_Extend/UIExtension'
     ss.ios.dependency 'OC_Extend/UIExtension'
@@ -100,12 +108,12 @@ Pod::Spec.new do |s|
     # ss.ios.frameworks = 'MobileCoreServices', 'CoreGraphics'
     # ss.osx.frameworks = 'CoreServices'
   end
-
+# NS类 扩转
   s.subspec 'NSExtension' do |ss|
     ss.source_files = 'OC_Extend/Classes/NSExtension/**/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/NSExtension/**/*.h'
   end
-
+# 温馨提示框
   s.subspec 'ZHJAlertViewController' do |ss|
   	# 引用了 获取当前试图控制器的方法
   	ss.dependency 'OC_Extend/UIExtension'

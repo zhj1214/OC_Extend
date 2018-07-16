@@ -15,4 +15,5 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 
+@property (nonatomic,strong) NSString *zhjstr;
 @end

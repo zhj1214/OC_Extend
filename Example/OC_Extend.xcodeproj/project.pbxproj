@@ -24,8 +24,6 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		F203359520C8D0E3001AC315 /* ZHJLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F203359320C8D0E3001AC315 /* ZHJLabel.m */; };
-		F203359B20C8D446001AC315 /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F203359A20C8D446001AC315 /* BaseLabel.m */; };
 		F249CDB020D3ADA700DAC89E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F249CDAF20D3ADA600DAC89E /* libsqlite3.tbd */; };
 		F249CDB220D3ADAF00DAC89E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F249CDB120D3ADAF00DAC89E /* libsqlite3.0.tbd */; };
 		F2780D1520E60FDD00B94797 /* TestNSURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = F2780D1420E60FDD00B94797 /* TestNSURLSessionTask.m */; };
@@ -77,12 +75,8 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7941179075166EC92B863C1B /* OC_Extend.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = OC_Extend.podspec; path = ../OC_Extend.podspec; sourceTree = "<group>"; };
+		7941179075166EC92B863C1B /* OC_Extend.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = OC_Extend.podspec; path = ../OC_Extend.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F203359320C8D0E3001AC315 /* ZHJLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHJLabel.m; sourceTree = "<group>"; };
-		F203359420C8D0E3001AC315 /* ZHJLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHJLabel.h; sourceTree = "<group>"; };
-		F203359920C8D446001AC315 /* BaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLabel.h; sourceTree = "<group>"; };
-		F203359A20C8D446001AC315 /* BaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLabel.m; sourceTree = "<group>"; };
 		F249CDAF20D3ADA600DAC89E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F249CDB120D3ADAF00DAC89E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		F2780D1320E60FDD00B94797 /* TestNSURLSessionTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestNSURLSessionTask.h; sourceTree = "<group>"; };
@@ -243,20 +237,8 @@
 			children = (
 				F2B6044E20DB94240093545C /* NetWorking */,
 				F2B6044A20DB91100093545C /* CustomURLProtocol */,
-				F203359220C8D0E3001AC315 /* UILabel */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		F203359220C8D0E3001AC315 /* UILabel */ = {
-			isa = PBXGroup;
-			children = (
-				F203359920C8D446001AC315 /* BaseLabel.h */,
-				F203359A20C8D446001AC315 /* BaseLabel.m */,
-				F203359320C8D0E3001AC315 /* ZHJLabel.m */,
-				F203359420C8D0E3001AC315 /* ZHJLabel.h */,
-			);
-			path = UILabel;
 			sourceTree = "<group>";
 		};
 		F2780D1220E60E2800B94797 /* CustomVC */ = {
@@ -290,8 +272,8 @@
 		F2B6045A20DCD2960093545C /* WKObserve */ = {
 			isa = PBXGroup;
 			children = (
-				F2B6045B20DCD2960093545C /* NSURLProtocol+WKWebVIew.m */,
 				F2B6045C20DCD2960093545C /* NSURLProtocol+WKWebVIew.h */,
+				F2B6045B20DCD2960093545C /* NSURLProtocol+WKWebVIew.m */,
 			);
 			path = WKObserve;
 			sourceTree = "<group>";
@@ -454,6 +436,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-OC_Extend_Example/Pods-OC_Extend_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework",
+				"${BUILT_PRODUCTS_DIR}/AvoidCrash/AvoidCrash.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/GBDeviceInfo/GBDeviceInfo.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
@@ -462,11 +445,13 @@
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
+				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AvoidCrash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GBDeviceInfo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
@@ -475,6 +460,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -507,7 +493,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* OCAppDelegate.m in Sources */,
-				F203359B20C8D446001AC315 /* BaseLabel.m in Sources */,
 				F2E1069520C7DCD800278FF3 /* Person+Car.m in Sources */,
 				F2780D1520E60FDD00B94797 /* TestNSURLSessionTask.m in Sources */,
 				6003F5A7195388D20070C39A /* OCViewController.m in Sources */,
@@ -516,7 +501,6 @@
 				F2B6045120DB94250093545C /* XMNetWorkHelper.m in Sources */,
 				F2E1069220C78F4400278FF3 /* TestMethodSwizzling.m in Sources */,
 				F2B6044D20DB91100093545C /* CustomHTTPProtocol.m in Sources */,
-				F203359520C8D0E3001AC315 /* ZHJLabel.m in Sources */,
 				F2C5184420D23DE80074F3AD /* WeatherInfoTestModel.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

@@ -23,6 +23,7 @@
 
 // 获取手机ip
 #import "IPToolManager.h"
+#import "ZHJLayer.h"
 
 @implementation Tool
 
@@ -258,18 +259,8 @@
 #pragma mark: -- View上添加文字 绘制图层
 + (void)drawText:(UILabel*)laebl {
     NSString *text = laebl.text;
-    // 如果存在相同的 文字图层则不 添加
-    for (id layer  in laebl.layer.sublayers) {
-        if ([layer isKindOfClass:[CATextLayer class]]) {
-            CATextLayer *textLayer = layer;
-            if ([textLayer.string isEqualToString:text]) {
-                return;
-            }
-        }
-    }
-    
     // 绘制文本的图层
-    CATextLayer *layerText = [[CATextLayer alloc] init];
+    ZHJLayer *layerText = [[ZHJLayer alloc] init];
     // 背景颜色
     layerText.backgroundColor = [UIColor clearColor].CGColor;
     // 渲染分辨率-重要，否则显示模糊
@@ -279,7 +270,11 @@
     // 超长显示时，省略号位置
     layerText.truncationMode = kCATruncationNone;
     // 字体颜色
-    layerText.foregroundColor = laebl.textColor.CGColor;
+    if ([laebl.textColor isEqual:[UIColor clearColor]]) {
+        layerText.foregroundColor = [UIColor blackColor].CGColor;
+    } else {
+        layerText.foregroundColor = laebl.textColor.CGColor;
+    }
     // 字体名称、大小
     UIFont *font = laebl.font;
     CFStringRef fontName = (__bridge CFStringRef)font.fontName;
@@ -301,8 +296,18 @@
     // 字符显示
     // 方法1-简单显示
     layerText.string = text;
-    // 添加到父图书
-    [laebl.layer addSublayer:layerText];
+
+    // 如果存在相同的 文字图层则不 添加
+    BOOL isreplace = NO;
+    for (id layer  in laebl.layer.sublayers) {
+        if ([layer isKindOfClass:[ZHJLayer class]]) {
+            isreplace = YES;
+            [laebl.layer replaceSublayer:layer with:layerText];
+        }
+    }
+    if (!isreplace) {
+        [laebl.layer addSublayer:layerText];
+    }
     
     // 方法2-富文本显示
     //    // 文本段落样式
@@ -348,6 +353,7 @@
         laebl.textColor = [UIColor clearColor];
         return;
     }
+    
     // 开始 混乱顺序
     for (int i =0; i < shuffleArray.count; i++) {
         int n = (arc4random() % (shuffleArray.count - i)) + i;
@@ -355,7 +361,7 @@
     }
     
     laebl.text = @"";
-    text = @"";
+    text = [NSString stringWithFormat:@"%u",arc4random()%10];
     for (NSString *str in shuffleArray) {
         text = [text stringByAppendingString:str];
     }

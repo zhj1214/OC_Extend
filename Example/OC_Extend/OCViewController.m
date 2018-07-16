@@ -8,7 +8,6 @@
 
 #import "OCViewController.h"
 #import <GBDeviceInfo/GBDeviceInfo.h>
-#import "ZHJLabel.h"
 #import <AFNetworking/AFNetworking.h>
 // 使用model
 #import "WeatherInfoTestModel.h"
@@ -30,9 +29,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-
-
     
 //#ifdef __IPHone_11_0
     
@@ -93,7 +89,14 @@
     }
     
     if (indexPath.section == 0 && indexPath.row == 0) {
-        cell.detailTextLabel.text = @"你好啊小军";
+        if (![cell.contentView viewWithTag:11]) {
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 44)];
+            label.text = @"你好啊小军";
+            label.tag = 11;
+            label.textAlignment = NSTextAlignmentCenter;
+            label.textColor = [UIColor redColor];
+            [cell.contentView addSubview:label];
+        }
     } else {
         cell.detailTextLabel.text = array[indexPath.row];
     }
@@ -136,14 +139,16 @@
         case 0:
             switch (indexPath.row) {
                 case 0:{
-                    [Tool drawText:cell.textLabel];
-                    [ZHJAlertViewController alertShowTitle:@"welcome browse" message:[NSString stringWithFormat:@"实际label的文字是：%@",cell.textLabel.text] cancelButtonTitle:@"承认" otherButtonTitles:@"对" block:^(NSInteger buttonIndex) {
-                        if (buttonIndex == 0) {
-                            NSLog(@"有意思");
-                        } else {
-                            NSLog(@"你好");
-                        }
-                    }];
+                    UILabel *label = [cell.contentView viewWithTag:11];
+                    label.text = [NSString stringWithFormat:@"%u",arc4random()%100];
+                    [Tool drawText:label];
+//                    [ZHJAlertViewController alertShowTitle:@"welcome browse" message:[NSString stringWithFormat:@"实际label的文字是：%@",cell.textLabel.text] cancelButtonTitle:@"承认" otherButtonTitles:@"对" block:^(NSInteger buttonIndex) {
+//                        if (buttonIndex == 0) {
+//                            NSLog(@"有意思");
+//                        } else {
+//                            NSLog(@"你好");
+//                        }
+//                    }];
                 }
                     break;
                 case 1:
@@ -177,8 +182,7 @@
 #pragma mark -- 网络监听
 -(void)networkingMonitoring {
     // 请求拦截
-    //    [CustomHTTPProtocol registerInterceptor];
-    
+//        [CustomHTTPProtocol registerInterceptor];
     NSError *error = nil;
     [NSURLSession aspect_hookSelector:@selector(dataTaskWithRequest:completionHandler:) withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info){
         for (id obj in info.arguments) {
@@ -256,7 +260,10 @@
 
 #pragma mark: -- TestNetWorking
 -(void)testNetWorkingModel {
-    [[ZHJNetworkManager defaultManager] sendRequestMethod:HTTPMethodGET apiPath:@"http://www.weather.com.cn/data/sk/101010100.html" parameters:nil hud:YES cache:NO progress:nil success:^(BOOL isSuccess, id  _Nullable responseObject) {
+    ZHJRequestConfig *config = [ZHJRequestConfig sharedRequestWithMethodType:RequestMethod_Get withPath:@"/data/sk/101010100.html" withParam:nil];
+    config.isCache = NO;
+    
+    [[ZHJNetworkManager defaultManager] sendRequestMethod:config progress:nil success:^(BOOL isSuccess, id  _Nullable responseObject) {
         WeatherInfoTestModel *weather = [WeatherInfoTestModel yy_modelWithJSON:responseObject[@"weatherinfo"]];
         NSLog(@"成功__城市%@",weather.cityName);
     } failure:^(NSString * _Nullable errorMessage) {
