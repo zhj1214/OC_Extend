@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   # => 创建个人目录  
   s.source_files = 'OC_Extend/Classes/OC_ExtendHeader.h'
   s.public_header_files = 'OC_Extend/Classes/OC_ExtendHeader.h'
-# APP 工具类
+# IP地址获取
   s.subspec 'IPTool' do |ss|
     ss.source_files = 'OC_Extend/Classes/IPTool/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/IPTool/*.h'
@@ -49,7 +49,10 @@ Pod::Spec.new do |s|
     # ss.ios.deployment_target = '8.0'
     ss.dependency 'OC_Extend/IPTool'
     ss.ios.dependency 'OC_Extend/IPTool'
-
+    
+    ss.dependency 'OC_Extend/UIExtension'
+    ss.ios.dependency 'OC_Extend/UIExtension'
+    
     ss.source_files = 'OC_Extend/Classes/APPSeting/*.{h,m}'
     ss.public_header_files = 'OC_Extend/Classes/APPSeting/*.h'
   end
@@ -84,7 +87,7 @@ Pod::Spec.new do |s|
     ss.ios.dependency 'OC_Extend/ZHJCacheManger'
     
     ss.source_files = 'OC_Extend/Classes/NetworkManager/**/*.{h,m,c,mm}'
-    ss.public_header_files = 'OC_Extend/Classes/NetworkManager/**/*.{h.c}'
+    ss.public_header_files = 'OC_Extend/Classes/NetworkManager/**/*.{h}'
   end
 # 加密封装
   s.subspec 'CommonSecretData' do |ss|
